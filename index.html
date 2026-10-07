@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Luyện tập bố cục lưới thẻ sản phẩm (Product Card Grid) tự động co giãn và xuống dòng với Flexbox.">
+  <title>Bố cục lưới sản phẩm linh hoạt với Flexbox</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #f8fafc;
+      color: #1e293b;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Tiêu đề & Giới thiệu */
+    header {
+      padding: 40px 24px 20px;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #e0f2fe;
+      color: #0284c7;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 9999px;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      color: #64748b;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* Container chính */
+    .wrapper {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 16px 40px;
+    }
+
+    /* BỐ CỤC LƯỚI SẢN PHẨM VỚI FLEXBOX */
+    .product-grid {
+      display: flex;
+      flex-wrap: wrap;       /* Tự động xuống dòng khi thiếu chỗ */
+      gap: 20px;             /* Khoảng cách đều giữa các thẻ */
+      padding: 20px;
+    }
+
+    /* TỪNG THẺ SẢN PHẨM */
+    .product-card {
+      /* flex-grow: 1, flex-shrink: 1, flex-basis: calc(25% - 20px) */
+      flex: 1 1 calc(25% - 20px);
+      min-width: 220px;      /* Giới hạn chiều rộng tối thiểu trước khi rớt dòng */
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px -6px rgba(15, 23, 42, 0.08);
+      border-color: #cbd5e1;
+    }
+
+    .card-thumbnail {
+      width: 100%;
+      height: 140px;
+      background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      font-size: 2.2rem;
+    }
+
+    .product-card h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #0f172a;
+      margin-bottom: 8px;
+    }
+
+    .product-card .category {
+      font-size: 0.8rem;
+      color: #94a3b8;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+
+    .product-card .price {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #0284c7;
+      margin-top: 8px;
+      margin-bottom: 16px;
+    }
+
+    .buy-btn {
+      width: 100%;
+      padding: 10px 16px;
+      background: #0f172a;
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .buy-btn:hover {
+      background: #2563eb;
+    }
+
+    /* Hộp thông tin phân tích CSS */
+    .explanation-box {
+      margin-top: 30px;
+      padding: 20px 24px;
+      background: #ffffff;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .explanation-box h5 {
+      font-size: 1rem;
+      color: #0f172a;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .explanation-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #475569;
+    }
+
+    .explanation-item {
+      background: #f8fafc;
+      padding: 12px 16px;
+      border-radius: 8px;
+      border-left: 3px solid #0284c7;
+    }
+
+    .explanation-item strong {
+      color: #0f172a;
+      display: block;
+      margin-bottom: 4px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="badge">Flexbox Responsive Grid</div>
+    <h1>Danh Sách Lưới Sản Phẩm Linh Hoạt</h1>
+    <p class="subtitle">Thử co giãn kích thước trình duyệt để quan sát các thẻ sản phẩm tự động xếp 4 cột, 2 cột hoặc 1 cột.</p>
+  </header>
+
+  <div class="wrapper">
+    <!-- Cấu trúc HTML chính theo yêu cầu -->
+    <div class="product-grid">
+      <div class="product-card">
+        <div>
+          <div class="card-thumbnail">🎧</div>
+          <p class="category">Âm thanh</p>
+          <h4>Sản phẩm 1</h4>
+        </div>
+        <div>
+          <p class="price">500.000 đ</p>
+          <button class="buy-btn">Thêm vào giỏ</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div>
+          <div class="card-thumbnail">⌚</div>
+          <p class="category">Phụ kiện</p>
+          <h4>Sản phẩm 2</h4>
+        </div>
+        <div>
+          <p class="price">750.000 đ</p>
+          <button class="buy-btn">Thêm vào giỏ</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div>
+          <div class="card-thumbnail">💻</div>
+          <p class="category">Điện tử</p>
+          <h4>Sản phẩm 3</h4>
+        </div>
+        <div>
+          <p class="price">1.200.000 đ</p>
+          <button class="buy-btn">Thêm vào giỏ</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div>
+          <div class="card-thumbnail">⌨️</div>
+          <p class="category">Bàn phím</p>
+          <h4>Sản phẩm 4</h4>
+        </div>
+        <div>
+          <p class="price">320.000 đ</p>
+          <button class="buy-btn">Thêm vào giỏ</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Giải thích cơ chế hoạt động -->
+    <div class="explanation-box">
+      <h5>💡 Cơ chế co giãn linh hoạt của Flexbox:</h5>
+      <div class="explanation-list">
+        <div class="explanation-item">
+          <strong>1. <code>flex-wrap: wrap;</code></strong>
+          Cho phép các phần tử tự động rớt xuống dòng tiếp theo khi hàng hiện tại không còn đủ khoảng trống chứa thẻ.
+        </div>
+        <div class="explanation-item">
+          <strong>2. <code>gap: 20px;</code></strong>
+          Tạo khoảng cách đều đặn 20px giữa các hàng và cột mà không cần dùng margin âm hay margin thủ công.
+        </div>
+        <div class="explanation-item">
+          <strong>3. <code>flex: 1 1 calc(25% - 20px);</code></strong>
+          Mặc định chia 4 cột (mỗi cột ~25%). Các thẻ có thể co lại hoặc giãn đều ra để lấp đầy khoảng trống dư thừa.
+        </div>
+        <div class="explanation-item">
+          <strong>4. <code>min-width: 220px;</code></strong>
+          Ngăn thẻ bị ép quá hẹp. Khi màn hình nhỏ hơn (Tablet, Mobile), các thẻ sẽ tự động rớt dòng xuống 2 cột hoặc 1 cột.
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
