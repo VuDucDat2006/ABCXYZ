@@ -1,391 +1,281 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Imaginary Store - Phối Màu Đơn Tông (Monochromatic)</title>
-<link href="style.css" rel="stylesheet" type="text/css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter Mẫu - Phiên Bản 1: Trello Oceanic Productivity</title>
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS v5.3.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- CSS Tùy Chỉnh - Phiên Bản 1 (Trello Oceanic) -->
+    <link rel="stylesheet" href="style1.css">
 </head>
-
 <body>
-<!-- Thanh công cụ hỗ trợ chấm bài & quan sát phối màu đơn tông -->
-<div class="palette-toolbar">
-    <div class="palette-toolbar-info">
-        <span class="palette-badge">CodeGym Web Practice</span>
-        <strong id="currentThemeLabel">Phối màu đơn tông Xanh Dương (#00ADEE)</strong>
-        <div class="palette-swatches-preview">
-            <span class="swatch-chip" style="background: var(--color-lv1);" title="Bậc 1: Màu chính #00ADEE"></span>
-            <span class="swatch-chip" style="background: var(--color-lv4);" title="Bậc 4: Nền banner #00BFF2"></span>
-            <span class="swatch-chip" style="background: var(--color-lv7);" title="Bậc 7: Nền preview #8DD7F7"></span>
-            <span class="swatch-chip" style="background: var(--color-lv9);" title="Bậc 9: Nền footer #C6E9FA"></span>
+
+    <!-- THANH CHUYỂN ĐỔI PHIÊN BẢN & ĐIỀU HƯỚNG (Version Switcher Bar) -->
+    <div class="container text-center pt-4 pb-2">
+        <div class="version-nav-bar">
+            <span class="d-none d-sm-inline opacity-75 small me-1">
+                <i class="bi bi-palette2 me-1"></i>Chuyển đổi bài tập:
+            </span>
+            <a href="index.html" class="version-nav-btn active" title="Đang xem Phiên bản 1">
+                <i class="bi bi-check-circle-fill"></i> Phiên Bản 1: Trello Blue
+            </a>
+            <a href="newsletter_version2.html" class="version-nav-btn" title="Chuyển sang Phiên bản 2">
+                <i class="bi bi-arrow-right-circle"></i> Phiên Bản 2: Sunset Coral
+            </a>
+            <button class="version-nav-btn bg-white text-dark ms-2" data-bs-toggle="modal" data-bs-target="#paletteModal">
+                <i class="bi bi-info-circle-fill text-primary"></i> Tra Cứu Mã Màu
+            </button>
         </div>
     </div>
-    <div class="palette-toolbar-actions">
-        <button class="theme-btn active" id="btnThemeBlue" onclick="switchTheme('blue')">🔵 Xanh Dương (Bước 1-7)</button>
-        <button class="theme-btn" id="btnThemePurple" onclick="switchTheme('purple')">🟣 Tím Adobe Color (Bước 8)</button>
-        <button class="theme-btn" id="btnThemeEmerald" onclick="switchTheme('emerald')">🟢 Xanh Lục (Mở rộng)</button>
-        <button class="theme-btn theme-btn-modal" onclick="openModal()">📋 Bảng Tra Cứu Bậc Màu</button>
-        <a href="theme-variant.html" class="theme-btn" style="background:#2563eb; color:#ffffff; border-color:#1d4ed8;" title="Mở trang web thứ hai theo Bước 8">📄 Trang Biến Thể Bước 8 &rarr;</a>
-    </div>
-</div>
 
-<!-- Modal Bảng tra cứu cấp độ màu đơn tông theo bài học -->
-<div class="modal-overlay" id="colorModal" onclick="closeModalOnBg(event)">
-    <div class="modal-card">
-        <div class="modal-header">
-            <h3>Bảng Phân Bổ Cấp Độ Màu Đơn Tông (Monochromatic Scale)</h3>
-            <button class="modal-close-btn" onclick="closeModal()">&times;</button>
+    <!-- MAIN NEWSLETTER CONTAINER -->
+    <div class="container py-4" style="max-width: 860px;">
+
+        <!-- 1. HEADER (TIÊU ĐỀ, LOGO & SƠ LƯỢC) -->
+        <header class="text-center mb-4 p-4 p-md-5 newsletter-header text-white">
+            <div class="d-inline-flex align-items-center justify-content-center bg-white text-primary rounded-circle mb-3 p-3 shadow-sm" style="width: 72px; height: 72px;">
+                <svg width="38" height="38" viewBox="0 0 24 24" fill="currentColor">
+                    <rect x="2" y="3" width="20" height="18" rx="3" fill="#0079BF"/>
+                    <rect x="5" y="6" width="6" height="11" rx="1.5" fill="#ffffff"/>
+                    <rect x="13" y="6" width="6" height="7" rx="1.5" fill="#ffffff"/>
+                </svg>
+            </div>
+            <div class="mb-2">
+                <span class="badge bg-white text-dark px-3 py-2 rounded-pill fw-bold text-uppercase" style="font-size: 0.75rem; letter-spacing: 0.08em;">
+                    <i class="bi bi-lightning-charge-fill text-warning me-1"></i>Bản Tin Số #24 • Tuần Năng Suất
+                </span>
+            </div>
+            <h1 class="display-6 fw-bold mb-2">Trello Workspace Newsletter</h1>
+            <p class="lead mb-0 text-white-50" style="max-width: 580px; margin: 0 auto; color: #DEEBFF !important;">
+                Nơi bắt đầu những câu chuyện mới, kiến tạo quy trình làm việc thông minh và kết nối đội ngũ hiệu quả.
+            </p>
+        </header>
+
+        <!-- THANH TỔNG QUAN PALETTE MÀU ADOBE COLOR -->
+        <div class="card card-custom p-3 mb-4">
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-2">
+                <div class="d-flex align-items-center gap-2">
+                    <span class="badge-custom">Adobe Color Palette</span>
+                    <span class="fw-bold small text-muted">Phiên bản 1: Tông Xanh Dương Trello & Bổ túc</span>
+                </div>
+                <div class="d-flex gap-2 align-items-center">
+                    <span class="d-inline-block rounded-circle" style="width: 22px; height: 22px; background: #0079BF;" title="Primary: #0079BF"></span>
+                    <span class="d-inline-block rounded-circle" style="width: 22px; height: 22px; background: #055A8C;" title="Darker Primary: #055A8C"></span>
+                    <span class="d-inline-block rounded-circle" style="width: 22px; height: 22px; background: #00C2E0;" title="Secondary: #00C2E0"></span>
+                    <span class="d-inline-block rounded-circle" style="width: 22px; height: 22px; background: #5AAC44;" title="Accent: #5AAC44"></span>
+                    <span class="d-inline-block rounded-circle" style="width: 22px; height: 22px; background: #F4F5F7; border: 1px solid #ccc;" title="Light BG: #F4F5F7"></span>
+                </div>
+            </div>
         </div>
-        <p style="font-size: 13.5px; line-height: 1.6; color: #4b5563; margin-bottom: 14px;">
-            Dưới đây là bảng phân cấp màu đơn tông nhạt dần từ màu chủ đạo theo hướng dẫn bài tập thực hành CodeGym:
-        </p>
-        <table class="color-table">
-            <thead>
-                <tr>
-                    <th>Cấp độ</th>
-                    <th>Mã màu (Hex)</th>
-                    <th>Mô tả & Vị trí áp dụng trên website</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Bậc 1</strong> (Chính)</td>
-                    <td><span class="color-sample-box" style="background: #00ADEE;"></span> <code>#00ADEE</code></td>
-                    <td><strong>Màu chủ đạo (Logo):</strong> Dùng cho nút Add to Cart, badge ON SALE, PREVIEW badge, circle play, icon, link hover.</td>
-                </tr>
-                <tr>
-                    <td><strong>Bậc 2</strong></td>
-                    <td><span class="color-sample-box" style="background: #00B2EF;"></span> <code>#00B2EF</code></td>
-                    <td>Màu nhấn phụ, hiệu ứng hover nút bấm và điểm tương tác nổi bật.</td>
-                </tr>
-                <tr>
-                    <td><strong>Bậc 3</strong></td>
-                    <td><span class="color-sample-box" style="background: #00B8F0;"></span> <code>#00B8F0</code></td>
-                    <td>Tông màu trung gian kết nối giữa Bậc 2 và Bậc 4.</td>
-                </tr>
-                <tr>
-                    <td><strong>Bậc 4</strong></td>
-                    <td><span class="color-sample-box" style="background: #00BFF2;"></span> <code>#00BFF2</code></td>
-                    <td><strong>Bước 2:</strong> Màu nền phần <code>#banner</code>, màu chữ màu đen (hoặc trắng) tương phản rõ.</td>
-                </tr>
-                <tr>
-                    <td><strong>Bậc 5</strong></td>
-                    <td><span class="color-sample-box" style="background: #2DCBF5;"></span> <code>#2DCBF5</code></td>
-                    <td>Tông sáng chuyển tiếp.</td>
-                </tr>
-                <tr>
-                    <td><strong>Bậc 6</strong></td>
-                    <td><span class="color-sample-box" style="background: #5CD4F6;"></span> <code>#5CD4F6</code></td>
-                    <td>Tông sáng nhẹ.</td>
-                </tr>
-                <tr>
-                    <td><strong>Bậc 7</strong></td>
-                    <td><span class="color-sample-box" style="background: #8DD7F7;"></span> <code>#8DD7F7</code></td>
-                    <td><strong>Bước 4:</strong> Màu nền thẻ nội dung Preview (thay cho màu hồng cũ <code>#fac7d2</code>), chữ màu đen.</td>
-                </tr>
-                <tr>
-                    <td><strong>Bậc 8</strong></td>
-                    <td><span class="color-sample-box" style="background: #ACE2F9;"></span> <code>#ACE2F9</code></td>
-                    <td>Tông màu pastel chuyển tiếp.</td>
-                </tr>
-                <tr>
-                    <td><strong>Bậc 9</strong></td>
-                    <td><span class="color-sample-box" style="background: #C6E9FA;"></span> <code>#C6E9FA</code></td>
-                    <td><strong>Bước 5:</strong> Màu nền phần Newsletter/Info và Footer tạo độ sáng tươi mới cho website.</td>
-                </tr>
-                <tr>
-                    <td><strong>Toàn bộ chữ</strong></td>
-                    <td><span class="color-sample-box" style="background: #000000;"></span> <code>#000000</code></td>
-                    <td><strong>Bước 6:</strong> Giữ nguyên màu chữ cho toàn bộ trang là màu đen để bảo đảm độ tương phản tối ưu.</td>
-                </tr>
-            </tbody>
-        </table>
-        <div style="margin-top: 18px; text-align: right;">
-            <button class="theme-btn" style="background: #111827; color: #fff;" onclick="closeModal()">Đóng cửa sổ</button>
-        </div>
-    </div>
-</div>
 
-<header id="top">
-	<div class="fix-size">
-    	<p class="c9 left">
-        	Welcome Thomas. <a href="">[ Manage Account ]</a>
-        </p>
-        <p class="c3 left">
-        	<a href="#main-nav" class="hide"><img src="images/nav-btn.png" alt="button" /></a>
-            <a href="" class="right">Sign out</a>
-        </p>
-    </div>
-    <div class="clear"></div>
-</header><!-- header -->
-
-<nav>
-	<div class="fix-size">
-    	<ul class="c5 left show">
-        	<li><a href="">Categories</a></li>
-            <li><a href="">Top Products</a></li>
-            <li><a href="">Carts</a></li>
-        </ul>
-        <a href="" class="c2 left c">
-        	<img id="storeLogo" src="images/logo-blue.png" alt="logo" />
-        </a>
-        <form action="#" class="c5 left show">
-        	<input type="search" placeholder="search anything in store" required />
-            <input type="submit" value="search" />
-        </form>
-    </div>
-    <div class="clear"></div>
-</nav><!-- nav -->
-
-<section id="banner">
-	<div class="fix-size">
-    	<section class="c9 left c">
-        	<p>Top Products / This Week / Disc / Bach</p>
-            <h1>J.S. Bach Top 25 Collection</h1>
+        <!-- 2. PHẦN GIỚI THIỆU CHÍNH (HERO / INTRO CARD) -->
+        <section class="card card-custom mb-4 overflow-hidden">
+            <div class="card-body p-4 p-md-5">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                    <span class="badge-custom">Tiêu Điểm Tháng</span>
+                    <small class="text-muted"><i class="bi bi-clock me-1"></i>3 phút đọc</small>
+                </div>
+                <h2 class="card-title text-primary-color fw-bold mb-3">
+                    Chào mừng bạn đến với bản tin nâng cao năng suất của chúng tôi!
+                </h2>
+                <p class="card-text text-muted mb-4" style="font-size: 1.05rem;">
+                    Trong số phát hành tuần này, chúng ta sẽ cùng khám phá cách tối ưu hóa không gian làm việc số với bảng Kanban trực quan. Màu sắc chủ đạo được lấy cảm hứng trực tiếp từ logo Trello gốc <strong>(#0079BF)</strong> kết hợp cùng sắc xanh ngọc <strong>(#00C2E0)</strong> và điểm nhấn xanh lá cây tươi <strong>(#5AAC44)</strong> tạo cảm giác tin cậy, tràn đầy sinh lực và tập trung cao độ.
+                </p>
+                <div class="d-flex flex-wrap gap-3 align-items-center">
+                    <a href="#subscribe" class="btn btn-primary-custom">
+                        <i class="bi bi-rocket-takeoff-fill"></i> Tìm hiểu thêm ngay
+                    </a>
+                    <a href="#features" class="btn btn-outline-secondary rounded-pill px-4" style="border-width: 2px; font-weight: 600;">
+                        Xem tính năng nổi bật
+                    </a>
+                </div>
+            </div>
         </section>
-        <aside class="c3 left c">
-        	<button>Add to Cart</button>
-            <p>In Stock. Estimated Delivery in 5 days.</p>
-        </aside>
-    </div>
-    <div class="clear"></div>
-</section><!-- banner -->
 
-<section id="main">
-	<div class="fix-size">
-    	<section class="c9 left c">
-        	<h3>Limited Discount: <del>$24.99</del> $19.99</h3>            
-            <div class="trans right">
-                <div class="cover">
-                    <div class="face">
-                        <p class="on-sale">ON SALE</p>
-                    </div>
-                    <div class="face back">
-                        <b>J.S. Bach - Top 25 Collection</b>
-                        <ol>
-                            <li>Violin Concerto in A minor</li>
-                            <li>Christmas Oratorio</li>
-                            <li>Jesu Joy of Man's Desiring</li>
-                            <li>Suite No. 3 in D major</li>
-                        </ol>
+        <!-- 3. HAI KHỐI TÍNH NĂNG NỔI BẬT (ROW WITH 2 COLUMNS) -->
+        <section class="row mb-4" id="features">
+            <!-- Tính năng 1 (Sử dụng secondary-bg từ đề bài) -->
+            <div class="col-md-6 mb-3 mb-md-0">
+                <div class="card h-100 secondary-bg text-white feature-card-secondary p-3">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="d-inline-flex align-items-center justify-content-center bg-white text-info rounded-3 p-2 mb-3 shadow-sm" style="width: 48px; height: 48px;">
+                                <i class="bi bi-cpu-fill fs-4 text-primary"></i>
+                            </div>
+                            <h3 class="card-title fw-bold mb-2">Tính năng nổi bật 1: Butler Tự Động Hóa</h3>
+                            <p class="card-text text-white-50" style="color: #F0FBFF !important;">
+                                Tự động chuyển thẻ, gán nhãn thành viên và đặt hạn chót thông minh mà không cần viết code. Giúp bạn tiết kiệm hơn 4 giờ quản lý thủ công mỗi tuần.
+                            </p>
+                        </div>
+                        <div class="mt-3">
+                            <span class="badge bg-white text-dark rounded-pill px-3 py-1 fw-semibold small">
+                                Mã màu Secondary: #00C2E0
+                            </span>
+                        </div>
                     </div>
                 </div>
-            </div><!-- trans -->
-            
-            <p>
-            	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id diam metus. Duis tellus augue, malesuada ac lacinia eu, faucibus quis sem. Morbi at metus nisi, at facilisis sem. Nullam sit amet orci lorem. Aenean blandit tellus a ante malesuada ut malesuada lectus tristique. Suspendisse potenti. Donec urna quam, tempor ut dignissim sed, laoreet quis eros. In hac habitasse platea dictumst. Nunc tempus, risus non viverra ultrices, nisl purus ornare tellus, ut scelerisque nunc sem non turpis. Phasellus dictum interdum enim, non viverra odio pharetra id. Duis ut molestie purus. Morbi lectus lectus, ultricies eu congue et, posuere id felis. Fusce elementum felis lacinia mi convallis venenatis. Donec molestie tempor ligula, quis euismod ipsum posuere a. Donec id mi erat, at volutpat massa. Suspendisse tempor, massa eget venenatis malesuada, ipsum turpis suscipit risus, id fermentum dui purus eget nisi.
-            </p>
-            
-            <h2>Previews</h2>
-            <ul class="preview">
-            	<li class="left"><a href="javascript:void(0);">
-                	<div class="c3 left">
-                    	<p class="title">PREVIEW</p>
-                        <div class="circle"><div class="triangle">&#9658;</div></div>
+            </div>
+
+            <!-- Tính năng 2 (Sử dụng accent-bg từ đề bài) -->
+            <div class="col-md-6">
+                <div class="card h-100 accent-bg text-white feature-card-accent p-3">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="d-inline-flex align-items-center justify-content-center bg-white text-success rounded-3 p-2 mb-3 shadow-sm" style="width: 48px; height: 48px;">
+                                <i class="bi bi-plugin fs-4" style="color: #49852E;"></i>
+                            </div>
+                            <h3 class="card-title fw-bold mb-2">Tính năng nổi bật 2: Tích Hợp Đa Nền Tảng</h3>
+                            <p class="card-text text-white-50" style="color: #F0FFF0 !important;">
+                                Đồng bộ tức thì với Slack, Google Drive, GitHub và Figma. Mọi tài nguyên dự án đều được gom về một bảng theo dõi duy nhất trực quan.
+                            </p>
+                        </div>
+                        <div class="mt-3">
+                            <span class="badge bg-white text-dark rounded-pill px-3 py-1 fw-semibold small">
+                                Mã màu Accent: #5AAC44
+                            </span>
+                        </div>
                     </div>
-                    <div class="c9 left">
-                    	<b>Violin Concerto in A minor</b>
-                        <small>Duration: 3:50</small>
-                    </div>
-                    <div class="clear"></div>
-                </a></li><!-- element -->
-                
-                <li class="right"><a href="javascript:void(0);">
-                	<div class="c3 left">
-                    	<p class="title">PREVIEW</p>
-                        <div class="circle"><div class="triangle">&#9658;</div></div>
-                    </div>
-                    <div class="c9 left">
-                    	<b>Christmas Oratorio</b>
-                        <small>Duration: 2:26</small>
-                    </div>
-                    <div class="clear"></div>
-                </a></li><!-- element -->
-                <li class="clear"></li>
-                
-                <li class="left"><a href="javascript:void(0);">
-                	<div class="c3 left">
-                    	<p class="title">PREVIEW</p>
-                        <div class="circle"><div class="triangle">&#9658;</div></div>
-                    </div>
-                    <div class="c9 left">
-                    	<b>Jesu Joy of Man's Desiring</b>
-                        <small>Duration: 3:27</small>
-                    </div>
-                    <div class="clear"></div>
-                </a></li><!-- element -->
-                
-                <li class="right"><a href="javascript:void(0);">
-                	<div class="c3 left">
-                    	<p class="title">PREVIEW</p>
-                        <div class="circle"><div class="triangle">&#9658;</div></div>
-                    </div>
-                    <div class="c9 left">
-                    	<b>Suite No. 3 in D major</b>
-                        <small>Duration: 3:28</small>
-                    </div>
-                    <div class="clear"></div>
-                </a></li><!-- element -->
-            </ul>
-            <div class="clear"></div>
-            
-            <h2>Top Reviews</h2>
-            <blockquote>
-            	<div class="quote">&ldquo;</div>
-                <p>
-                	Masterpiece! The must-have music you couldn't miss.<small>- S.H. Mak</small>
-                </p>
-            </blockquote>
-            
-            <blockquote>
-            	<div class="quote">&ldquo;</div>
-                <p>
-                	Buy it now and you would not regrad. <small>- Johnahtan</small>
-                </p>
-            </blockquote>
+                </div>
+            </div>
         </section>
-        <aside class="c3 left c">
-        	<h3>About J.S. Bach</h3>
-            <p class="about">
-            	Nullam sit amet orci lorem. Aenean blandit tellus a ante malesuada ut malesuada lectus tristique. Suspendisse potenti. Donec urna quam, tempor ut dignissim sed, laoreet quis eros. In hac habitasse platea dictumst. Nunc tempus, risus non viverra ultrices, nisl purus ornare tellus.
+
+        <!-- 4. KHỐI ĐĂNG KÝ BẢN TIN (SUBSCRIPTION BOX) -->
+        <section class="subscribe-section p-4 p-md-5 mb-4 card-custom" id="subscribe">
+            <div class="row align-items-center">
+                <div class="col-lg-7 mb-3 mb-lg-0">
+                    <span class="badge-custom mb-2">Đăng Ký Bản Tin</span>
+                    <h3 class="fw-bold text-primary-color mb-2">Nhận các mẹo làm việc hiệu quả mỗi tuần</h3>
+                    <p class="text-muted mb-0">
+                        Cùng hơn 25,000+ quản lý dự án và kỹ sư đón nhận những bản tin thực chiến, hoàn toàn miễn phí.
+                    </p>
+                </div>
+                <div class="col-lg-5">
+                    <form class="d-flex flex-column flex-sm-row gap-2" onsubmit="event.preventDefault(); alert('Cảm ơn bạn đã đăng ký nhận bản tin Trello Workspace (Phiên bản 1)!');">
+                        <input type="email" class="form-control form-control-custom" placeholder="Nhập địa chỉ email..." required>
+                        <button type="submit" class="btn btn-accent-custom text-nowrap">
+                            <i class="bi bi-send-fill"></i> Đăng Ký
+                        </button>
+                    </form>
+                    <small class="text-muted mt-2 d-block text-center text-sm-start">
+                        <i class="bi bi-shield-lock me-1"></i>Cam kết không spam • Hủy đăng ký bất kỳ lúc nào
+                    </small>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. FOOTER (BẢN QUYỀN, MẠNG XÃ HỘI, HỦY ĐĂNG KÝ) -->
+        <footer class="text-center mt-4 p-4 newsletter-footer text-white">
+            <div class="d-flex justify-content-center gap-3 mb-3">
+                <a href="#" class="btn btn-sm btn-outline-light rounded-circle" style="width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center;"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="btn btn-sm btn-outline-light rounded-circle" style="width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center;"><i class="bi bi-twitter-x"></i></a>
+                <a href="#" class="btn btn-sm btn-outline-light rounded-circle" style="width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center;"><i class="bi bi-linkedin"></i></a>
+                <a href="#" class="btn btn-sm btn-outline-light rounded-circle" style="width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center;"><i class="bi bi-github"></i></a>
+            </div>
+            <p class="mb-1 fw-semibold">&copy; 2026 Trello Workspace & VuDucDat2006. Mọi quyền được bảo lưu.</p>
+            <p class="small text-white-50 mb-0">
+                Bạn nhận được email này vì đã đăng ký tại website của chúng tôi. 
+                <a href="#" class="text-white text-decoration-underline ms-1">Hủy đăng ký</a> | 
+                <a href="#" class="text-white text-decoration-underline ms-1">Chính sách bảo mật</a>
             </p>
-            
-            <h3>Recommends</h3>
-            <div class="aside-cover">
-            	<div class="trans">
-                	<div class="cover">
-                    	<div class="face">
+        </footer>
+
+    </div>
+
+    <!-- MODAL TRA CỨU BẢNG MÀU ADOBE COLOR (Version 1) -->
+    <div class="modal fade" id="paletteModal" tabindex="-1" aria-labelledby="paletteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg" style="border-radius: 1rem;">
+                <div class="modal-header primary-bg text-white">
+                    <h5 class="modal-title fw-bold" id="paletteModalLabel">
+                        <i class="bi bi-palette-fill me-2"></i>Bảng Phối Màu Adobe Color - Phiên Bản 1
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <p class="text-muted small mb-3">
+                        Bộ màu được xây dựng dựa trên phong cách <strong>Trello Oceanic Productivity</strong> bằng công cụ Adobe Color:
+                    </p>
+                    <div class="list-group list-group-flush mb-3">
+                        <div class="list-group-item d-flex align-items-center justify-content-between px-0">
+                            <div class="d-flex align-items-center gap-3">
+                                <span class="rounded-circle shadow-sm" style="width: 32px; height: 32px; background: #0079BF;"></span>
+                                <div>
+                                    <div class="fw-bold">Primary Color</div>
+                                    <small class="text-muted">Header, Tiêu đề chính, Nút chính</small>
+                                </div>
+                            </div>
+                            <span class="badge bg-light text-dark font-monospace border">#0079BF</span>
                         </div>
-                        <div class="face back">
-                        	<b>J.S. Bach - Top 25 Collection</b>
-                            <ol>
-                            	<li>Violin Concerto in A minor</li>
-                                <li>Christmas Oratorio</li>
-                                <li>Jesu Joy of Man's Desiring</li>
-                                <li>Suite No. 3 in D major</li>
-                            </ol>
-                            <button>Go to Album</button>
+                        <div class="list-group-item d-flex align-items-center justify-content-between px-0">
+                            <div class="d-flex align-items-center gap-3">
+                                <span class="rounded-circle shadow-sm" style="width: 32px; height: 32px; background: #055A8C;"></span>
+                                <div>
+                                    <div class="fw-bold">Darker Primary</div>
+                                    <small class="text-muted">Trạng thái Hover của nút bấm</small>
+                                </div>
+                            </div>
+                            <span class="badge bg-light text-dark font-monospace border">#055A8C</span>
+                        </div>
+                        <div class="list-group-item d-flex align-items-center justify-content-between px-0">
+                            <div class="d-flex align-items-center gap-3">
+                                <span class="rounded-circle shadow-sm" style="width: 32px; height: 32px; background: #00C2E0;"></span>
+                                <div>
+                                    <div class="fw-bold">Secondary Color</div>
+                                    <small class="text-muted">Thẻ Tính năng 1, Điểm nhấn phụ</small>
+                                </div>
+                            </div>
+                            <span class="badge bg-light text-dark font-monospace border">#00C2E0</span>
+                        </div>
+                        <div class="list-group-item d-flex align-items-center justify-content-between px-0">
+                            <div class="d-flex align-items-center gap-3">
+                                <span class="rounded-circle shadow-sm" style="width: 32px; height: 32px; background: #5AAC44;"></span>
+                                <div>
+                                    <div class="fw-bold">Accent Color</div>
+                                    <small class="text-muted">Thẻ Tính năng 2, Nút Đăng Ký CTA</small>
+                                </div>
+                            </div>
+                            <span class="badge bg-light text-dark font-monospace border">#5AAC44</span>
+                        </div>
+                        <div class="list-group-item d-flex align-items-center justify-content-between px-0">
+                            <div class="d-flex align-items-center gap-3">
+                                <span class="rounded-circle shadow-sm border" style="width: 32px; height: 32px; background: #F4F5F7;"></span>
+                                <div>
+                                    <div class="fw-bold">Light Background</div>
+                                    <small class="text-muted">Nền toàn trang dịu mắt</small>
+                                </div>
+                            </div>
+                            <span class="badge bg-light text-dark font-monospace border">#F4F5F7</span>
+                        </div>
+                        <div class="list-group-item d-flex align-items-center justify-content-between px-0">
+                            <div class="d-flex align-items-center gap-3">
+                                <span class="rounded-circle shadow-sm" style="width: 32px; height: 32px; background: #172B4D;"></span>
+                                <div>
+                                    <div class="fw-bold">Text Color</div>
+                                    <small class="text-muted">Đạt chuẩn tương phản WCAG AAA (> 11:1)</small>
+                                </div>
+                            </div>
+                            <span class="badge bg-light text-dark font-monospace border">#172B4D</span>
                         </div>
                     </div>
-                </div><!-- trans -->
-            	<p>Bach Gold Collection T-Shirt</p>
-            </div><!-- aside cover -->
-            
-            <div class="aside-cover">
-            	<div class="trans">
-                	<div class="cover">
-                    	<div class="face">
-                        </div>
-                        <div class="face back">
-                        	<b>J.S. Bach - Top 25 Collection</b>
-                            <ol>
-                            	<li>Violin Concerto in A minor</li>
-                                <li>Christmas Oratorio</li>
-                                <li>Jesu Joy of Man's Desiring</li>
-                                <li>Suite No. 3 in D major</li>
-                            </ol>
-                            <button>Go to Album</button>
-                        </div>
-                    </div>
-                </div><!-- trans -->
-                <p>Bach Gold Collection</p>
-            </div><!-- aside cover -->
-        </aside>
-    </div>
-    <div class="clear"></div>
-    
-    <nav id="main-nav" class="c12 c hide">
-    	<ul>
-        	<li><a href="#top"><span class="arrow"></span>Back to Top</a></li>
-            <li><a href="">Categories</a></li>
-            <li><a href="">Top Products</a></li>
-            <li><a href="">Carts</a></li>
-            <li><a href="">Your Account</a></li>
-        </ul>
-        <form action="#">
-        	<input type="search" placeholder="search in store" required />
-            <input type="submit" value="go" />
-        </form>
-    </nav><!-- main nav -->
-    <div class="clear"></div>
-</section><!-- main -->
-
-<section id="info">
-	<div class="fix-size">
-    	<div class="c4 left c">
-        	<h3>Follow Us</h3>
-            <p>
-            	Lorem ipsum dolor sit amet. Faucibus quis sem. Morbi at metus nisi, at facilisis sem.
-            </p>
-        </div>
-        <div class="c4 left c">
-        	<h3>Newsletter</h3>
-            <p>
-            	Faucibus quis sem. Morbi at metus nisi, at facilisis sem. Nullam sit amet orci lorem.
-            </p>
-            <form action="#">
-            	<input type="email" placeholder="your email" required />
-                <input type="submit" value="Subscribe" />
-            </form>
-        </div>
-        <div class="c4 left c">
-        	<h3>Refund Policy</h3>
-        	<p>
-            	Morbi lectus lectus, ultricies eu congue et, posuere id felis. Fusce elementum felis lacinia mi convallis venenatis.
-            </p>
+                </div>
+                <div class="modal-footer bg-light">
+                    <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">Đóng</button>
+                    <a href="newsletter_version2.html" class="btn btn-primary-custom rounded-pill px-4">
+                        Xem Phiên Bản 2 <i class="bi bi-arrow-right ms-1"></i>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="clear"></div>
-</section><!-- info -->
 
-<footer>
-	<div class="fix-size">
-    	<div class="c12 c">
-        	<span>&copy; 2026. Imaginary Store. Luyện tập phối màu đơn tông.</span>
-            <span class="right">Handmade in Leipzig, Germany.</span>
-        </div>
-    </div>
-    <div class="clear"></div>
-</footer><!-- footer -->
-
-<script>
-    function switchTheme(theme) {
-        document.documentElement.removeAttribute('data-theme');
-        document.querySelectorAll('.theme-btn').forEach(btn => btn.classList.remove('active'));
-        
-        const label = document.getElementById('currentThemeLabel');
-        const logo = document.getElementById('storeLogo');
-
-        if (theme === 'blue') {
-            document.getElementById('btnThemeBlue').classList.add('active');
-            label.textContent = 'Phối màu đơn tông Xanh Dương (#00ADEE) - Bước 1-7';
-            if (logo) logo.src = 'images/logo-blue.png';
-        } else if (theme === 'purple') {
-            document.documentElement.setAttribute('data-theme', 'purple');
-            document.getElementById('btnThemePurple').classList.add('active');
-            label.textContent = 'Phối màu đơn tông Tím Adobe Color (#8D0888) - Bước 8';
-            if (logo) logo.src = 'images/logo-blue.png';
-        } else if (theme === 'emerald') {
-            document.documentElement.setAttribute('data-theme', 'emerald');
-            document.getElementById('btnThemeEmerald').classList.add('active');
-            label.textContent = 'Phối màu đơn tông Xanh Lục Emerald (#059669) - Mở rộng';
-            if (logo) logo.src = 'images/logo-blue.png';
-        }
-    }
-
-    function openModal() {
-        document.getElementById('colorModal').classList.add('open');
-    }
-
-    function closeModal() {
-        document.getElementById('colorModal').classList.remove('open');
-    }
-
-    function closeModalOnBg(e) {
-        if (e.target.id === 'colorModal') {
-            closeModal();
-        }
-    }
-</script>
+    <!-- Bootstrap JS v5.3.3 Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

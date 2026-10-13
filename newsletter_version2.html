@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter Mẫu - Phiên Bản 2: Warm Sunset & Coral Creativity</title>
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS v5.3.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- CSS Tùy Chỉnh - Phiên Bản 2 (Warm Sunset & Coral) -->
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+
+    <!-- THANH CHUYỂN ĐỔI PHIÊN BẢN & ĐIỀU HƯỚNG (Version Switcher Bar) -->
+    <div class="container text-center pt-4 pb-2">
+        <div class="version-nav-bar">
+            <span class="d-none d-sm-inline opacity-75 small me-1">
+                <i class="bi bi-palette2 me-1"></i>Chuyển đổi bài tập:
+            </span>
+            <a href="index.html" class="version-nav-btn" title="Chuyển sang Phiên bản 1">
+                <i class="bi bi-arrow-left-circle"></i> Phiên Bản 1: Trello Blue
+            </a>
+            <a href="newsletter_version2.html" class="version-nav-btn active" title="Đang xem Phiên bản 2">
+                <i class="bi bi-check-circle-fill"></i> Phiên Bản 2: Sunset Coral
+            </a>
+            <button class="version-nav-btn bg-white text-dark ms-2" data-bs-toggle="modal" data-bs-target="#paletteModal2">
+                <i class="bi bi-info-circle-fill text-danger"></i> Tra Cứu Mã Màu
+            </button>
+        </div>
+    </div>
+
+    <!-- MAIN NEWSLETTER CONTAINER -->
+    <div class="container py-4" style="max-width: 860px;">
+
+        <!-- 1. HEADER (TIÊU ĐỀ, LOGO & SƠ LƯỢC) -->
+        <header class="text-center mb-4 p-4 p-md-5 newsletter-header text-white">
+            <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-3 p-3 shadow-sm" style="width: 72px; height: 72px;">
+                <svg width="38" height="38" viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="12" r="9" fill="#E05638"/>
+                    <path d="M12 5V19M5 12H19" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+                    <circle cx="12" cy="12" r="3.5" fill="#FFB049"/>
+                </svg>
+            </div>
+            <div class="mb-2">
+                <span class="badge bg-white text-dark px-3 py-2 rounded-pill fw-bold text-uppercase" style="font-size: 0.75rem; letter-spacing: 0.08em;">
+                    <i class="bi bi-fire text-danger me-1"></i>Bản Tin Số #25 • Năng Lượng Sáng Tạo
+                </span>
+            </div>
+            <h1 class="display-6 fw-bold mb-2">Creative Spark Newsletter</h1>
+            <p class="lead mb-0 text-white-50" style="max-width: 580px; margin: 0 auto; color: #FFE8E1 !important;">
+                Nơi khởi nguồn những ý tưởng thiết kế đột phá, phối màu cảm xúc và xây dựng giao diện ấn tượng.
+            </p>
+        </header>
+
+        <!-- THANH TỔNG QUAN PALETTE MÀU ADOBE COLOR -->
+        <div class="card card-custom p-3 mb-4">
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-2">
+                <div class="d-flex align-items-center gap-2">
+                    <span class="badge-custom">Adobe Color Palette</span>
+                    <span class="fw-bold small text-muted">Phiên bản 2: Tông Cam San Hô Ấm Áp & Ngọc Bích Bổ Túc</span>
+                </div>
+                <div class="d-flex gap-2 align-items-center">
+                    <span class="d-inline-block rounded-circle" style="width: 22px; height: 22px; background: #E05638;" title="Primary: #E05638"></span>
+                    <span class="d-inline-block rounded-circle" style="width: 22px; height: 22px; background: #C43D20;" title="Darker Primary: #C43D20"></span>
+                    <span class="d-inline-block rounded-circle" style="width: 22px; height: 22px; background: #FFB049;" title="Secondary: #FFB049"></span>
+                    <span class="d-inline-block rounded-circle" style="width: 22px; height: 22px; background: #2E7D5B;" title="Accent: #2E7D5B"></span>
+                    <span class="d-inline-block rounded-circle" style="width: 22px; height: 22px; background: #FFF8F5; border: 1px solid #f0d5ce;" title="Light BG: #FFF8F5"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. PHẦN GIỚI THIỆU CHÍNH (HERO / INTRO CARD) -->
+        <section class="card card-custom mb-4 overflow-hidden">
+            <div class="card-body p-4 p-md-5">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                    <span class="badge-custom">Chủ Đề Tiêu Điểm</span>
+                    <small class="text-muted"><i class="bi bi-clock me-1"></i>4 phút đọc</small>
+                </div>
+                <h2 class="card-title text-primary-color fw-bold mb-3">
+                    Khám phá nghệ thuật phối màu cảm xúc trong thiết kế giao diện số!
+                </h2>
+                <p class="card-text text-muted mb-4" style="font-size: 1.05rem;">
+                    Chào mừng bạn đến với phiên bản thứ hai của bản tin! Với bộ màu <strong>Sunset Coral & Amber Warmth</strong> được tuyển chọn từ Adobe Color, sắc cam san hô rực rỡ <strong>(#E05638)</strong> kết hợp cùng ánh hổ phách ấm áp <strong>(#FFB049)</strong> và màu xanh ngọc bích <strong>(#2E7D5B)</strong> tạo nên cảm giác gần gũi, truyền cảm hứng và thôi thúc người dùng tương tác mạnh mẽ.
+                </p>
+                <div class="d-flex flex-wrap gap-3 align-items-center">
+                    <a href="#subscribe" class="btn btn-primary-custom">
+                        <i class="bi bi-brush-fill"></i> Đọc bài phân tích ngay
+                    </a>
+                    <a href="#features" class="btn btn-outline-secondary rounded-pill px-4" style="border-width: 2px; font-weight: 600;">
+                        Xem quy tắc phối màu
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. HAI KHỐI TÍNH NĂNG NỔI BẬT (ROW WITH 2 COLUMNS) -->
+        <section class="row mb-4" id="features">
+            <!-- Tính năng 1 (Sử dụng secondary-bg từ đề bài - Màu vàng cam hổ phách) -->
+            <div class="col-md-6 mb-3 mb-md-0">
+                <div class="card h-100 secondary-bg text-dark feature-card-secondary p-3">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-3 p-2 mb-3 shadow-sm" style="width: 48px; height: 48px;">
+                                <i class="bi bi-pie-chart-fill fs-4" style="color: #D98218;"></i>
+                            </div>
+                            <h3 class="card-title fw-bold mb-2">Tính năng 1: Quy Tắc 60-30-10</h3>
+                            <p class="card-text text-dark-50" style="color: #4A3326 !important;">
+                                Áp dụng 60% màu nền trung tính, 30% màu bổ trợ thứ cấp và 10% màu nhấn tương phản để đạt được sự cân bằng thị giác hoàn hảo cho trang web.
+                            </p>
+                        </div>
+                        <div class="mt-3">
+                            <span class="badge bg-white text-dark rounded-pill px-3 py-1 fw-semibold small">
+                                Mã màu Secondary: #FFB049
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tính năng 2 (Sử dụng accent-bg từ đề bài - Màu xanh ngọc bích) -->
+            <div class="col-md-6">
+                <div class="card h-100 accent-bg text-white feature-card-accent p-3">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-3 p-2 mb-3 shadow-sm" style="width: 48px; height: 48px;">
+                                <i class="bi bi-check-all fs-4" style="color: #1E5C41;"></i>
+                            </div>
+                            <h3 class="card-title fw-bold mb-2">Tính năng 2: Tiêu Chuẩn WCAG Accessibility</h3>
+                            <p class="card-text text-white-50" style="color: #F0FFF8 !important;">
+                                Kiểm soát chặt chẽ tỷ lệ tương phản giữa chữ và nền (Contrast Ratio > 4.5:1 với chuẩn AA và > 7:1 với AAA), bảo đảm người dùng khiếm thị màu vẫn đọc rõ.
+                            </p>
+                        </div>
+                        <div class="mt-3">
+                            <span class="badge bg-white text-dark rounded-pill px-3 py-1 fw-semibold small">
+                                Mã màu Accent: #2E7D5B
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. KHỐI ĐĂNG KÝ BẢN TIN (SUBSCRIPTION BOX) -->
+        <section class="subscribe-section p-4 p-md-5 mb-4 card-custom" id="subscribe">
+            <div class="row align-items-center">
+                <div class="col-lg-7 mb-3 mb-lg-0">
+                    <span class="badge-custom mb-2">Bộ Quà Tặng Độc Quyền</span>
+                    <h3 class="fw-bold text-primary-color mb-2">Nhận Ebook "Bí Quyết Phối Màu Cùng Adobe Color"</h3>
+                    <p class="text-muted mb-0">
+                        Cẩm nang 50+ bảng màu tuyển chọn dành riêng cho nhà thiết kế web và lập trình viên Frontend.
+                    </p>
+                </div>
+                <div class="col-lg-5">
+                    <form class="d-flex flex-column flex-sm-row gap-2" onsubmit="event.preventDefault(); alert('Cảm ơn bạn đã đăng ký nhận bản tin Creative Spark (Phiên bản 2)!');">
+                        <input type="email" class="form-control form-control-custom" placeholder="Nhập địa chỉ email..." required>
+                        <button type="submit" class="btn btn-accent-custom text-nowrap">
+                            <i class="bi bi-download"></i> Nhận Ngay
+                        </button>
+                    </form>
+                    <small class="text-muted mt-2 d-block text-center text-sm-start">
+                        <i class="bi bi-shield-check me-1"></i>Tài liệu PDF miễn phí • Gửi tức thì sau 30 giây
+                    </small>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. FOOTER (BẢN QUYỀN, MẠNG XÃ HỘI, HỦY ĐĂNG KÝ) -->
+        <footer class="text-center mt-4 p-4 newsletter-footer text-white">
+            <div class="d-flex justify-content-center gap-3 mb-3">
+                <a href="#" class="btn btn-sm btn-outline-light rounded-circle" style="width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center;"><i class="bi bi-dribbble"></i></a>
+                <a href="#" class="btn btn-sm btn-outline-light rounded-circle" style="width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center;"><i class="bi bi-behance"></i></a>
+                <a href="#" class="btn btn-sm btn-outline-light rounded-circle" style="width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center;"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="btn btn-sm btn-outline-light rounded-circle" style="width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center;"><i class="bi bi-github"></i></a>
+            </div>
+            <p class="mb-1 fw-semibold">&copy; 2026 Creative Spark Studio & VuDucDat2006. Mọi quyền được bảo lưu.</p>
+            <p class="small text-white-50 mb-0">
+                Bản tin được gửi đến các thành viên cộng đồng thiết kế sáng tạo. 
+                <a href="#" class="text-white text-decoration-underline ms-1">Hủy đăng ký</a> | 
+                <a href="#" class="text-white text-decoration-underline ms-1">Điều khoản dịch vụ</a>
+            </p>
+        </footer>
+
+    </div>
+
+    <!-- MODAL TRA CỨU BẢNG MÀU ADOBE COLOR (Version 2) -->
+    <div class="modal fade" id="paletteModal2" tabindex="-1" aria-labelledby="paletteModalLabel2" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg" style="border-radius: 1rem;">
+                <div class="modal-header primary-bg text-white">
+                    <h5 class="modal-title fw-bold" id="paletteModalLabel2">
+                        <i class="bi bi-palette-fill me-2"></i>Bảng Phối Màu Adobe Color - Phiên Bản 2
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <p class="text-muted small mb-3">
+                        Bộ màu được xây dựng dựa trên phong cách <strong>Warm Sunset & Coral Inspiration</strong> bằng công cụ Adobe Color:
+                    </p>
+                    <div class="list-group list-group-flush mb-3">
+                        <div class="list-group-item d-flex align-items-center justify-content-between px-0">
+                            <div class="d-flex align-items-center gap-3">
+                                <span class="rounded-circle shadow-sm" style="width: 32px; height: 32px; background: #E05638;"></span>
+                                <div>
+                                    <div class="fw-bold">Primary Color</div>
+                                    <small class="text-muted">Header, Tiêu đề chính, Nút chính</small>
+                                </div>
+                            </div>
+                            <span class="badge bg-light text-dark font-monospace border">#E05638</span>
+                        </div>
+                        <div class="list-group-item d-flex align-items-center justify-content-between px-0">
+                            <div class="d-flex align-items-center gap-3">
+                                <span class="rounded-circle shadow-sm" style="width: 32px; height: 32px; background: #C43D20;"></span>
+                                <div>
+                                    <div class="fw-bold">Darker Primary</div>
+                                    <small class="text-muted">Trạng thái Hover của nút bấm</small>
+                                </div>
+                            </div>
+                            <span class="badge bg-light text-dark font-monospace border">#C43D20</span>
+                        </div>
+                        <div class="list-group-item d-flex align-items-center justify-content-between px-0">
+                            <div class="d-flex align-items-center gap-3">
+                                <span class="rounded-circle shadow-sm" style="width: 32px; height: 32px; background: #FFB049;"></span>
+                                <div>
+                                    <div class="fw-bold">Secondary Color</div>
+                                    <small class="text-muted">Thẻ Tính năng 1, Điểm nhấn phụ ấm</small>
+                                </div>
+                            </div>
+                            <span class="badge bg-light text-dark font-monospace border">#FFB049</span>
+                        </div>
+                        <div class="list-group-item d-flex align-items-center justify-content-between px-0">
+                            <div class="d-flex align-items-center gap-3">
+                                <span class="rounded-circle shadow-sm" style="width: 32px; height: 32px; background: #2E7D5B;"></span>
+                                <div>
+                                    <div class="fw-bold">Accent Color</div>
+                                    <small class="text-muted">Thẻ Tính năng 2, Nút Tải Ebook CTA</small>
+                                </div>
+                            </div>
+                            <span class="badge bg-light text-dark font-monospace border">#2E7D5B</span>
+                        </div>
+                        <div class="list-group-item d-flex align-items-center justify-content-between px-0">
+                            <div class="d-flex align-items-center gap-3">
+                                <span class="rounded-circle shadow-sm border" style="width: 32px; height: 32px; background: #FFF8F5;"></span>
+                                <div>
+                                    <div class="fw-bold">Light Background</div>
+                                    <small class="text-muted">Nền kem đào ấm dịu mắt</small>
+                                </div>
+                            </div>
+                            <span class="badge bg-light text-dark font-monospace border">#FFF8F5</span>
+                        </div>
+                        <div class="list-group-item d-flex align-items-center justify-content-between px-0">
+                            <div class="d-flex align-items-center gap-3">
+                                <span class="rounded-circle shadow-sm" style="width: 32px; height: 32px; background: #2B1D19;"></span>
+                                <div>
+                                    <div class="fw-bold">Text Color</div>
+                                    <small class="text-muted">Đạt chuẩn tương phản WCAG AAA (> 13:1)</small>
+                                </div>
+                            </div>
+                            <span class="badge bg-light text-dark font-monospace border">#2B1D19</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer bg-light">
+                    <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">Đóng</button>
+                    <a href="index.html" class="btn btn-primary-custom rounded-pill px-4">
+                        <i class="bi bi-arrow-left me-1"></i> Quay Lại Phiên Bản 1
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS v5.3.3 Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
