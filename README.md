@@ -1,84 +1,66 @@
-# Bài Tập Thực Hành: Phối Màu Đơn Tông Trên Trang Web (CodeGym)
+# Báo Cáo Thực Hành: Xây Dựng Landing Page CodeGym Career Theo Phong Cách Bootstrap Material Design (MDBootstrap)
 
-> **Mục tiêu**: Luyện tập sử dụng phối màu đơn tông (Monochromatic Color Palette) trên trang web, xác định màu chủ đạo và các cấp độ màu nhạt dần, kết hợp hài hòa với màu đen và trắng.
-
----
-
-## 1. Bảng Phối Màu Đơn Tông Chính (Bước 1 - Bước 7: Tông Xanh Dương `#00ADEE`)
-
-| Cấp độ màu | Mã HEX | Vị trí áp dụng trên website | Vai trò & Tác dụng thị giác |
-| :--- | :---: | :--- | :--- |
-| **Bậc 1** (Chính) | `#00ADEE` | Nút **Add to Cart**, nhãn **ON SALE**, nhãn **PREVIEW**, nút play tròn (`.circle`), icon, liên kết nav | **Màu chủ đạo (Primary)** lấy từ xanh logo; tạo điểm nhấn thị giác rõ ràng |
-| **Bậc 2** | `#00B2EF` | Trạng thái `:hover` của nút bấm, viền và liên kết | Màu nhấn cấp phụ, phản hồi tương tác người dùng mượt mà |
-| **Bậc 3** | `#00B8F0` | Tông màu trung gian kết nối | Chuyển tiếp màu sắc tự nhiên |
-| **Bậc 4** | `#00BFF2` | **Màu nền phần Banner** (`#banner`) | **Bước 2**: Màu nền nổi bật, kết hợp màu chữ đen (`#000000`) tương phản sắc nét |
-| **Bậc 5** | `#2DCBF5` | Tông sáng chuyển tiếp | Giảm dần độ đậm của màu chủ đạo |
-| **Bậc 6** | `#5CD4F6` | Tông sáng chuyển tiếp | Tạo độ chuyển màu mịn màng |
-| **Bậc 7** | `#8DD7F7` | **Màu nền phần nội dung Preview** (`#main .preview li a`) | **Bước 4**: Thay thế cho màu nền hồng cũ (`#fac7d2`), chữ giữ màu đen dễ đọc |
-| **Bậc 8** | `#ACE2F9` | Tông pastel chuyển tiếp | Đệm màu dịu nhẹ |
-| **Bậc 9** | `#C6E9FA` | **Màu nền phần Info & Footer** (`#info`, `footer`) | **Bước 5**: Tạo độ sáng sủa, tinh tế và đồng bộ phong cách tối giản |
-| **Màu chữ** | `#000000` | Toàn bộ chữ trên trang web | **Bước 6**: Giữ màu đen để bảo đảm độ tương phản tối ưu (WCAG) |
+> **Học viên**: Vũ Đức Đạt (GitHub: [VuDucDat2006](https://github.com/VuDucDat2006))  
+> **Repository GitHub**: [https://github.com/VuDucDat2006/ABCXYZ](https://github.com/VuDucDat2006/ABCXYZ)  
+> **Branch**: `codegym-career-landing`  
+> **Trang nguồn tham khảo**: [https://codegym.vn/codegym-career/](https://codegym.vn/codegym-career/)  
+> **Thư viện UI chính**: Bootstrap Material Design (MDBootstrap v4.19.1), Bootstrap v4.5.0, Font Awesome v5.11.2, Google Fonts Roboto, jQuery v3.5.1.
 
 ---
 
-## 2. Bảng Phối Màu Đơn Tông Mở Rộng (Bước 8: Tông Tím Quý Tộc `#8D0888` từ Adobe Color)
+## 1. Mục Tiêu & Yêu Cầu Dự Án
 
-Thực hiện yêu cầu **Bước 8**: *"Hãy sử dụng bảng màu để tạo ra danh sách màu đơn tông khác, và thực hiện phối màu như trên để tạo ra được một trang web khác với màu sắc khác."*
-
-Trang web thứ hai được xây dựng tại file [`theme-variant.html`](./theme-variant.html) và [`style-variant.css`](./style-variant.css) dựa trên chủ đề Adobe Color:
-
-| Cấp độ | Mã HEX | Vị trí áp dụng |
-| :--- | :---: | :--- |
-| **Bậc 1** | `#8D0888` | Màu chủ đạo (Nút Add to Cart, badge ON SALE, PREVIEW badge, link hover) |
-| **Bậc 2** | `#9F149A` | Màu hover, điểm nhấn phụ |
-| **Bậc 4** | `#C642C1` | Nền banner (`#banner`), chữ màu đen |
-| **Bậc 7** | `#EBB3E8` | Nền thẻ nội dung Preview (chữ màu đen) |
-| **Bậc 9** | `#FAE8F9` | Nền Newsletter/Info và Footer |
-| **Màu chữ** | `#000000` | Giữ nguyên chữ màu đen cho toàn bộ trang |
+* **Luyện tập xây dựng Landing Page hoàn chỉnh**: Phân tích nội dung từ trang nguồn thực tế của CodeGym Career, sắp xếp bố cục thông minh và triển khai giao diện đáp ứng (Responsive Design).
+* **Ứng dụng Bootstrap Material Design (MDBootstrap)**: Áp dụng triệt để các nguyên lý thiết kế Material Design của Google:
+  - **Phân cấp độ cao (Elevation / z-depth)**: Bóng đổ đa tầng tạo cảm giác vật lý chân thực.
+  - **Hiệu ứng gợn sóng (Ripple / Waves Effect)**: Tăng trải nghiệm xúc giác khi người dùng tương tác với nút bấm và thẻ.
+  - **Màu sắc sống động & Tương phản chuẩn WCAG**: Tông màu chủ đạo là Xanh Deep Material (`#0d47a1`, `#1565c0`) kết hợp màu nhấn Hổ phách/Cam rực rỡ (`#ff6f00`, `#ffca28`).
+  - **Typography Roboto**: Phông chữ chuẩn mực của hệ thống Material Design.
+* **Đầy đủ các phần chức năng**: Navbar cố định, Hero Section, Triết lý đào tạo, Lộ trình Bootcamp, Dịch vụ việc làm, Khóa học, Doanh nghiệp đối tác, Cảm nhận học viên, Form thu thập thông tin tư vấn và Footer.
 
 ---
 
-## 3. Cấu Trúc Dự Án
+## 2. Phân Tích Nội Dung & Chuyển Đổi Sang Material Design ("Materialize")
+
+| Thành phần Landing Page | Nội dung từ trang nguồn CodeGym Career | Component Material Design (MDBootstrap) đã áp dụng |
+| :--- | :--- | :--- |
+| **Header / Navbar** | Menu điều hướng, Logo CodeGym Career, Nút tư vấn | `.navbar.fixed-top.scrolling-navbar` tự động chuyển nền trong suốt sang màu nền đậm có bóng đổ `z-depth-2` khi cuộn. |
+| **Hero Section** | "Trở thành Lập trình viên Full-Stack chỉ sau 5 tháng / 20 tuần", cam kết việc làm 100% | Hero Jumbotron với lớp phủ gradient chiều sâu, nút bấm bo góc tròn `.btn-rounded`, thẻ thống kê `.hero-card-stats` nổi với hiệu ứng kính mờ (Backdrop filter) và độ cao `z-depth-3`. |
+| **Triết lý & Lợi ích đào tạo** | 6 giá trị cốt lõi: Sự nghiệp từ ngày đầu, Tương xứng công sức, Trải nghiệm thật, Thực chiến, Hỗ trợ 1-1, Công nghệ giáo dục | Hệ thống 6 thẻ `.material-card` với các vòng tròn biểu tượng màu sắc nổi bật, hiệu ứng nâng cao khi di chuột (`hoverable translateY(-6px)`). |
+| **Lộ trình học (Roadmap)** | 4 giai đoạn đào tạo theo mô hình Coding Bootcamp thực chiến (20 tuần) | Thiết kế dạng thẻ tiến trình liên tục (Stepper Cards) có viền trái nhấn màu thương hiệu, nhãn thời lượng và danh sách checklist trực quan. |
+| **Dịch vụ việc làm (Career Services)** | 5 bước chuyển giao việc làm: Tinh chỉnh kỹ năng, Tạo CV, Portfolio, Mock Interview, Nhận việc | 5 khối hộp dịch vụ tương tác có huy hiệu số tròn Material, đi kèm banner Cam kết hoàn tiền 100% học phí nếu không có việc làm. |
+| **Khóa học tiêu biểu** | Khóa Java Web Full-stack, JavaScript React/Node, Python Data | Các thẻ khóa học `.course-card` có phần header gradient riêng biệt theo ngôn ngữ, huy hiệu nổi bật (Badge) và danh sách thẻ tag kỹ năng (`.skill-tag`). |
+| **Doanh nghiệp đối tác** | FPT Software, Viettel, VNPT, Rikkeisoft, VTI, CMC, NashTech, MISA | Lưới 8 khối đối tác có viền tinh gọn và hiệu ứng đổ bóng phản hồi nhanh khi hover. |
+| **Cảm nhận học viên** | Câu chuyện chuyển ngành từ Xây dựng, Kinh tế sang làm lập trình viên | Thẻ `.testimonial-card` kèm đánh giá 5 sao vàng, trích dẫn thực tế và ảnh đại diện học viên có viền nổi bật. |
+| **Form Đăng Ký Tư Vấn (Lead Gen)** | Thu thập họ tên, số điện thoại, email, khóa học, cơ sở | Form Material Design với trường nhập liệu icon prefix (`.md-form`), hiệu ứng focus chuẩn Google, nút submit nổi bật và Popup Modal xác nhận tự động. |
+| **Footer** | Thông tin cơ sở tại Hà Nội, Đà Nẵng, TP.HCM, Huế, hotline 098 953 44 58 | Component `.page-footer` màu tối thanh lịch, tích hợp nút mạng xã hội tròn Material và bản quyền. |
+
+---
+
+## 3. Cấu Trúc Thư Mục Trên Branch `codegym-career-landing`
 
 ```plaintext
-ggggg/
-├── index.html              # Trang chính hoàn thành Bước 1-7, tích hợp thanh đổi theme & tra cứu
-├── style.css               # File CSS chính với biến CSS cho bảng màu đơn tông
-├── theme-variant.html      # Trang thứ 2 hoàn thành theo Bước 8 (Theme Tím Adobe Color)
-├── style-variant.css       # File CSS độc lập cho trang biến thể Bước 8
-├── fonts/                  # Phông chữ gốc (pacifico.woff, ptsans.woff)
-├── images/                 # Tài nguyên hình ảnh, biểu tượng & đĩa nhạc
-│   ├── logo-blue.png       # Logo tông xanh (#00ADEE) theo Bước 1
-│   ├── logo.png            # Logo hiển thị
-│   ├── disc-cover.png      # Bìa đĩa CD hiệu ứng 3D lật thẻ
-│   └── ...
-├── AdobeColor-My Color Theme.jpeg # Bảng màu tham khảo Adobe Color
-└── README.md               # Tài liệu hướng dẫn & giải trình bài thực hành
+ABCXYZ (Branch: codegym-career-landing)
+├── index.html       # Cấu trúc HTML5 semantic hoàn chỉnh theo MDBootstrap 4
+├── style.css        # Tùy chỉnh Material Design (Elevation shadows, transitions, gradients, responsive)
+├── script.js       # Tương tác giao diện: Navbar cuộn, cuộn trang mượt, modal form, waves effect
+└── README.md        # Tài liệu báo cáo phân tích thiết kế UI/UX và hướng dẫn nộp bài
 ```
 
 ---
 
-## 4. Các Tính Năng Nổi Bật Đã Cài Đặt
+## 4. Kiểm Thử Trải Nghiệm (Responsive & Accessibility)
 
-1. **Tuân thủ 100% từng bước thực hành**:
-   - Bước 1: Màu xanh logo `#00ADEE` làm màu bậc 1.
-   - Bước 2: Màu nền banner đổi sang bậc 4 `#00BFF2`, chữ màu đen.
-   - Bước 3: Nền ON SALE và PREVIEW đổi sang bậc 1 `#00ADEE`.
-   - Bước 4: Nền hồng đổi sang bậc 7 `#8DD7F7`, chữ màu đen.
-   - Bước 5: Nền footer/info đổi sang bậc 9 `#C6E9FA` tạo độ sáng.
-   - Bước 6: Giữ nguyên màu chữ toàn bộ trang là màu đen.
-   - Bước 7: Kiểm thử hiển thị hoàn chỉnh trên trình duyệt.
-   - Bước 8: Tạo trang web riêng biệt `theme-variant.html` với bảng màu đơn tông mới.
-2. **Thanh công cụ trực quan (Palette Toolbar)**:
-   - Cho phép giáo viên / người chấm chuyển đổi xem trực tiếp các tông màu (Xanh dương, Tím Adobe Color, Xanh ngọc lục bảo).
-   - Nút **"📋 Bảng Tra Cứu Bậc Màu"** mở hộp thoại popup liệt kê chi tiết từng mã màu HEX và vị trí tương ứng.
-3. **Hiệu ứng mượt mà & Responsive**:
-   - Giữ nguyên hiệu ứng xoay lật 3D bìa đĩa CD (`.trans .cover`).
-   - Tương thích tốt trên cả máy tính lẫn thiết bị di động.
+* **Thiết bị di động & Tablet**: Hệ thống lưới Bootstrap Grid co giãn mượt mà, menu điều hướng tự động gom vào nút Hamburger, font chữ tự động điều chỉnh tỷ lệ đọc dễ dàng.
+* **Tương tác Micro-interactions**:
+  - Di chuột vào các thẻ card sẽ kích hoạt hiệu ứng nâng cao (Elevation lift).
+  - Nút bấm có hiệu ứng gợn sóng Waves Effect lan tỏa đặc trưng của Material Design.
+  - Nút **Floating Action Button** (ở góc dưới cùng bên phải) mượt mà xuất hiện khi cuộn qua 60px để đưa người dùng trở lại đầu trang tức thì.
+  - Khi gửi form đăng ký tư vấn, hệ thống tự động kiểm tra dữ liệu và mở **Material Modal** xác nhận thông tin chi tiết.
 
 ---
 
-## 5. Hướng Dẫn Xem & Nộp Bài
+## 5. Hướng Dẫn Xem Trực Tiếp Trên Trình Duyệt
 
-- **Xem trực tiếp trên máy tính**: Nhấp đúp chuột mở file `index.html` hoặc `theme-variant.html` bằng bất kỳ trình duyệt nào (Chrome, Edge, Firefox).
-- **Mã nguồn đã sẵn sàng**: Có thể đẩy thẳng lên GitHub repository `https://github.com/VuDucDat2006/ABCXYZ.git`.
+* Mở trực tiếp tệp [`index.html`](file:///c:/Users/dvu56/OneDrive/M%C3%A1y%20t%C3%ADnh/ggggg/index.html) bằng trình duyệt (Google Chrome, Microsoft Edge, Firefox).
+* Mọi tài nguyên thư viện CSS/JS đều được liên kết qua mạng CDN tốc độ cao, đảm bảo hiển thị sắc nét 100% mà không cần cài đặt thêm bất kỳ phần mềm nào.
