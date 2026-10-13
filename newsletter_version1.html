@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter Mẫu - Phiên Bản 1: Trello Oceanic Productivity</title>
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS v5.3.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- CSS Tùy Chỉnh - Phiên Bản 1 (Trello Oceanic) -->
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+
+    <!-- THANH CHUYỂN ĐỔI PHIÊN BẢN & ĐIỀU HƯỚNG (Version Switcher Bar) -->
+    <div class="container text-center pt-4 pb-2">
+        <div class="version-nav-bar">
+            <span class="d-none d-sm-inline opacity-75 small me-1">
+                <i class="bi bi-palette2 me-1"></i>Chuyển đổi bài tập:
+            </span>
+            <a href="newsletter_version1.html" class="version-nav-btn active" title="Đang xem Phiên bản 1">
+                <i class="bi bi-check-circle-fill"></i> Phiên Bản 1: Trello Blue
+            </a>
+            <a href="newsletter_version2.html" class="version-nav-btn" title="Chuyển sang Phiên bản 2">
+                <i class="bi bi-arrow-right-circle"></i> Phiên Bản 2: Sunset Coral
+            </a>
+            <button class="version-nav-btn bg-white text-dark ms-2" data-bs-toggle="modal" data-bs-target="#paletteModal">
+                <i class="bi bi-info-circle-fill text-primary"></i> Tra Cứu Mã Màu
+            </button>
+        </div>
+    </div>
+
+    <!-- MAIN NEWSLETTER CONTAINER -->
+    <div class="container py-4" style="max-width: 860px;">
+
+        <!-- 1. HEADER (TIÊU ĐỀ, LOGO & SƠ LƯỢC) -->
+        <header class="text-center mb-4 p-4 p-md-5 newsletter-header text-white">
+            <div class="d-inline-flex align-items-center justify-content-center bg-white text-primary rounded-circle mb-3 p-3 shadow-sm" style="width: 72px; height: 72px;">
+                <svg width="38" height="38" viewBox="0 0 24 24" fill="currentColor">
+                    <rect x="2" y="3" width="20" height="18" rx="3" fill="#0079BF"/>
+                    <rect x="5" y="6" width="6" height="11" rx="1.5" fill="#ffffff"/>
+                    <rect x="13" y="6" width="6" height="7" rx="1.5" fill="#ffffff"/>
+                </svg>
+            </div>
+            <div class="mb-2">
+                <span class="badge bg-white text-dark px-3 py-2 rounded-pill fw-bold text-uppercase" style="font-size: 0.75rem; letter-spacing: 0.08em;">
+                    <i class="bi bi-lightning-charge-fill text-warning me-1"></i>Bản Tin Số #24 • Tuần Năng Suất
+                </span>
+            </div>
+            <h1 class="display-6 fw-bold mb-2">Trello Workspace Newsletter</h1>
+            <p class="lead mb-0 text-white-50" style="max-width: 580px; margin: 0 auto; color: #DEEBFF !important;">
+                Nơi bắt đầu những câu chuyện mới, kiến tạo quy trình làm việc thông minh và kết nối đội ngũ hiệu quả.
+            </p>
+        </header>
+
+        <!-- THANH TỔNG QUAN PALETTE MÀU ADOBE COLOR -->
+        <div class="card card-custom p-3 mb-4">
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-2">
+                <div class="d-flex align-items-center gap-2">
+                    <span class="badge-custom">Adobe Color Palette</span>
+                    <span class="fw-bold small text-muted">Phiên bản 1: Tông Xanh Dương Trello & Bổ túc</span>
+                </div>
+                <div class="d-flex gap-2 align-items-center">
+                    <span class="d-inline-block rounded-circle" style="width: 22px; height: 22px; background: #0079BF;" title="Primary: #0079BF"></span>
+                    <span class="d-inline-block rounded-circle" style="width: 22px; height: 22px; background: #055A8C;" title="Darker Primary: #055A8C"></span>
+                    <span class="d-inline-block rounded-circle" style="width: 22px; height: 22px; background: #00C2E0;" title="Secondary: #00C2E0"></span>
+                    <span class="d-inline-block rounded-circle" style="width: 22px; height: 22px; background: #5AAC44;" title="Accent: #5AAC44"></span>
+                    <span class="d-inline-block rounded-circle" style="width: 22px; height: 22px; background: #F4F5F7; border: 1px solid #ccc;" title="Light BG: #F4F5F7"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. PHẦN GIỚI THIỆU CHÍNH (HERO / INTRO CARD) -->
+        <section class="card card-custom mb-4 overflow-hidden">
+            <div class="card-body p-4 p-md-5">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                    <span class="badge-custom">Tiêu Điểm Tháng</span>
+                    <small class="text-muted"><i class="bi bi-clock me-1"></i>3 phút đọc</small>
+                </div>
+                <h2 class="card-title text-primary-color fw-bold mb-3">
+                    Chào mừng bạn đến với bản tin nâng cao năng suất của chúng tôi!
+                </h2>
+                <p class="card-text text-muted mb-4" style="font-size: 1.05rem;">
+                    Trong số phát hành tuần này, chúng ta sẽ cùng khám phá cách tối ưu hóa không gian làm việc số với bảng Kanban trực quan. Màu sắc chủ đạo được lấy cảm hứng trực tiếp từ logo Trello gốc <strong>(#0079BF)</strong> kết hợp cùng sắc xanh ngọc <strong>(#00C2E0)</strong> và điểm nhấn xanh lá cây tươi <strong>(#5AAC44)</strong> tạo cảm giác tin cậy, tràn đầy sinh lực và tập trung cao độ.
+                </p>
+                <div class="d-flex flex-wrap gap-3 align-items-center">
+                    <a href="#subscribe" class="btn btn-primary-custom">
+                        <i class="bi bi-rocket-takeoff-fill"></i> Tìm hiểu thêm ngay
+                    </a>
+                    <a href="#features" class="btn btn-outline-secondary rounded-pill px-4" style="border-width: 2px; font-weight: 600;">
+                        Xem tính năng nổi bật
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. HAI KHỐI TÍNH NĂNG NỔI BẬT (ROW WITH 2 COLUMNS) -->
+        <section class="row mb-4" id="features">
+            <!-- Tính năng 1 (Sử dụng secondary-bg từ đề bài) -->
+            <div class="col-md-6 mb-3 mb-md-0">
+                <div class="card h-100 secondary-bg text-white feature-card-secondary p-3">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="d-inline-flex align-items-center justify-content-center bg-white text-info rounded-3 p-2 mb-3 shadow-sm" style="width: 48px; height: 48px;">
+                                <i class="bi bi-cpu-fill fs-4 text-primary"></i>
+                            </div>
+                            <h3 class="card-title fw-bold mb-2">Tính năng nổi bật 1: Butler Tự Động Hóa</h3>
+                            <p class="card-text text-white-50" style="color: #F0FBFF !important;">
+                                Tự động chuyển thẻ, gán nhãn thành viên và đặt hạn chót thông minh mà không cần viết code. Giúp bạn tiết kiệm hơn 4 giờ quản lý thủ công mỗi tuần.
+                            </p>
+                        </div>
+                        <div class="mt-3">
+                            <span class="badge bg-white text-dark rounded-pill px-3 py-1 fw-semibold small">
+                                Mã màu Secondary: #00C2E0
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tính năng 2 (Sử dụng accent-bg từ đề bài) -->
+            <div class="col-md-6">
+                <div class="card h-100 accent-bg text-white feature-card-accent p-3">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="d-inline-flex align-items-center justify-content-center bg-white text-success rounded-3 p-2 mb-3 shadow-sm" style="width: 48px; height: 48px;">
+                                <i class="bi bi-plugin fs-4" style="color: #49852E;"></i>
+                            </div>
+                            <h3 class="card-title fw-bold mb-2">Tính năng nổi bật 2: Tích Hợp Đa Nền Tảng</h3>
+                            <p class="card-text text-white-50" style="color: #F0FFF0 !important;">
+                                Đồng bộ tức thì với Slack, Google Drive, GitHub và Figma. Mọi tài nguyên dự án đều được gom về một bảng theo dõi duy nhất trực quan.
+                            </p>
+                        </div>
+                        <div class="mt-3">
+                            <span class="badge bg-white text-dark rounded-pill px-3 py-1 fw-semibold small">
+                                Mã màu Accent: #5AAC44
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. KHỐI ĐĂNG KÝ BẢN TIN (SUBSCRIPTION BOX) -->
+        <section class="subscribe-section p-4 p-md-5 mb-4 card-custom" id="subscribe">
+            <div class="row align-items-center">
+                <div class="col-lg-7 mb-3 mb-lg-0">
+                    <span class="badge-custom mb-2">Đăng Ký Bản Tin</span>
+                    <h3 class="fw-bold text-primary-color mb-2">Nhận các mẹo làm việc hiệu quả mỗi tuần</h3>
+                    <p class="text-muted mb-0">
+                        Cùng hơn 25,000+ quản lý dự án và kỹ sư đón nhận những bản tin thực chiến, hoàn toàn miễn phí.
+                    </p>
+                </div>
+                <div class="col-lg-5">
+                    <form class="d-flex flex-column flex-sm-row gap-2" onsubmit="event.preventDefault(); alert('Cảm ơn bạn đã đăng ký nhận bản tin Trello Workspace (Phiên bản 1)!');">
+                        <input type="email" class="form-control form-control-custom" placeholder="Nhập địa chỉ email..." required>
+                        <button type="submit" class="btn btn-accent-custom text-nowrap">
+                            <i class="bi bi-send-fill"></i> Đăng Ký
+                        </button>
+                    </form>
+                    <small class="text-muted mt-2 d-block text-center text-sm-start">
+                        <i class="bi bi-shield-lock me-1"></i>Cam kết không spam • Hủy đăng ký bất kỳ lúc nào
+                    </small>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. FOOTER (BẢN QUYỀN, MẠNG XÃ HỘI, HỦY ĐĂNG KÝ) -->
+        <footer class="text-center mt-4 p-4 newsletter-footer text-white">
+            <div class="d-flex justify-content-center gap-3 mb-3">
+                <a href="#" class="btn btn-sm btn-outline-light rounded-circle" style="width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center;"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="btn btn-sm btn-outline-light rounded-circle" style="width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center;"><i class="bi bi-twitter-x"></i></a>
+                <a href="#" class="btn btn-sm btn-outline-light rounded-circle" style="width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center;"><i class="bi bi-linkedin"></i></a>
+                <a href="#" class="btn btn-sm btn-outline-light rounded-circle" style="width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center;"><i class="bi bi-github"></i></a>
+            </div>
+            <p class="mb-1 fw-semibold">&copy; 2026 Trello Workspace & VuDucDat2006. Mọi quyền được bảo lưu.</p>
+            <p class="small text-white-50 mb-0">
+                Bạn nhận được email này vì đã đăng ký tại website của chúng tôi. 
+                <a href="#" class="text-white text-decoration-underline ms-1">Hủy đăng ký</a> | 
+                <a href="#" class="text-white text-decoration-underline ms-1">Chính sách bảo mật</a>
+            </p>
+        </footer>
+
+    </div>
+
+    <!-- MODAL TRA CỨU BẢNG MÀU ADOBE COLOR (Version 1) -->
+    <div class="modal fade" id="paletteModal" tabindex="-1" aria-labelledby="paletteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg" style="border-radius: 1rem;">
+                <div class="modal-header primary-bg text-white">
+                    <h5 class="modal-title fw-bold" id="paletteModalLabel">
+                        <i class="bi bi-palette-fill me-2"></i>Bảng Phối Màu Adobe Color - Phiên Bản 1
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <p class="text-muted small mb-3">
+                        Bộ màu được xây dựng dựa trên phong cách <strong>Trello Oceanic Productivity</strong> bằng công cụ Adobe Color:
+                    </p>
+                    <div class="list-group list-group-flush mb-3">
+                        <div class="list-group-item d-flex align-items-center justify-content-between px-0">
+                            <div class="d-flex align-items-center gap-3">
+                                <span class="rounded-circle shadow-sm" style="width: 32px; height: 32px; background: #0079BF;"></span>
+                                <div>
+                                    <div class="fw-bold">Primary Color</div>
+                                    <small class="text-muted">Header, Tiêu đề chính, Nút chính</small>
+                                </div>
+                            </div>
+                            <span class="badge bg-light text-dark font-monospace border">#0079BF</span>
+                        </div>
+                        <div class="list-group-item d-flex align-items-center justify-content-between px-0">
+                            <div class="d-flex align-items-center gap-3">
+                                <span class="rounded-circle shadow-sm" style="width: 32px; height: 32px; background: #055A8C;"></span>
+                                <div>
+                                    <div class="fw-bold">Darker Primary</div>
+                                    <small class="text-muted">Trạng thái Hover của nút bấm</small>
+                                </div>
+                            </div>
+                            <span class="badge bg-light text-dark font-monospace border">#055A8C</span>
+                        </div>
+                        <div class="list-group-item d-flex align-items-center justify-content-between px-0">
+                            <div class="d-flex align-items-center gap-3">
+                                <span class="rounded-circle shadow-sm" style="width: 32px; height: 32px; background: #00C2E0;"></span>
+                                <div>
+                                    <div class="fw-bold">Secondary Color</div>
+                                    <small class="text-muted">Thẻ Tính năng 1, Điểm nhấn phụ</small>
+                                </div>
+                            </div>
+                            <span class="badge bg-light text-dark font-monospace border">#00C2E0</span>
+                        </div>
+                        <div class="list-group-item d-flex align-items-center justify-content-between px-0">
+                            <div class="d-flex align-items-center gap-3">
+                                <span class="rounded-circle shadow-sm" style="width: 32px; height: 32px; background: #5AAC44;"></span>
+                                <div>
+                                    <div class="fw-bold">Accent Color</div>
+                                    <small class="text-muted">Thẻ Tính năng 2, Nút Đăng Ký CTA</small>
+                                </div>
+                            </div>
+                            <span class="badge bg-light text-dark font-monospace border">#5AAC44</span>
+                        </div>
+                        <div class="list-group-item d-flex align-items-center justify-content-between px-0">
+                            <div class="d-flex align-items-center gap-3">
+                                <span class="rounded-circle shadow-sm border" style="width: 32px; height: 32px; background: #F4F5F7;"></span>
+                                <div>
+                                    <div class="fw-bold">Light Background</div>
+                                    <small class="text-muted">Nền toàn trang dịu mắt</small>
+                                </div>
+                            </div>
+                            <span class="badge bg-light text-dark font-monospace border">#F4F5F7</span>
+                        </div>
+                        <div class="list-group-item d-flex align-items-center justify-content-between px-0">
+                            <div class="d-flex align-items-center gap-3">
+                                <span class="rounded-circle shadow-sm" style="width: 32px; height: 32px; background: #172B4D;"></span>
+                                <div>
+                                    <div class="fw-bold">Text Color</div>
+                                    <small class="text-muted">Đạt chuẩn tương phản WCAG AAA (> 11:1)</small>
+                                </div>
+                            </div>
+                            <span class="badge bg-light text-dark font-monospace border">#172B4D</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer bg-light">
+                    <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">Đóng</button>
+                    <a href="newsletter_version2.html" class="btn btn-primary-custom rounded-pill px-4">
+                        Xem Phiên Bản 2 <i class="bi bi-arrow-right ms-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS v5.3.3 Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

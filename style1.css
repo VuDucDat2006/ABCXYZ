@@ -1,0 +1,267 @@
+/* ==========================================================================
+   STYLE1.CSS - BẢNG MÀU PHIÊN BẢN 1: TRELLO OCEANIC PRODUCTIVITY
+   Được lựa chọn từ Adobe Color (Quy tắc Tương đồng & Bổ túc Analogous/Complementary)
+   ========================================================================== */
+
+:root {
+    /* 1. Bộ mã màu Adobe Color chính */
+    --primary-color: #0079BF;          /* Trello Ocean Blue - Màu chủ đạo */
+    --darker-primary-color: #055A8C;   /* Deep Navy Blue - Trạng thái Hover */
+    --secondary-color: #00C2E0;        /* Cyan Aqua - Màu bổ trợ năng động */
+    --secondary-dark-color: #0098B0;   /* Cyan Darker cho text/border */
+    --accent-color: #5AAC44;           /* Trello Emerald Lime - Điểm nhấn CTA & Thành công */
+    --accent-dark-color: #49852E;      /* Deep Emerald cho Hover CTA */
+
+    /* 2. Màu nền và trung tính */
+    --light-bg-color: #F4F5F7;         /* Nền xám bạch kim Trello dịu mắt */
+    --card-bg-color: #FFFFFF;          /* Nền thẻ trắng tinh khiết */
+    --border-color: #DFE1E6;           /* Màu viền thẻ tinh tế */
+
+    /* 3. Màu chữ đảm bảo tiêu chuẩn tương phản WCAG AAA */
+    --text-color: #172B4D;             /* Màu chữ chính: Xanh than đậm (Contrast > 11:1) */
+    --text-primary-color: #0079BF;     /* Màu chữ mang sắc thái primary */
+    --text-secondary-color: #0098B0;   /* Màu chữ mang sắc thái secondary */
+    --text-accent-color: #49852E;      /* Màu chữ mang sắc thái accent */
+    --text-muted: #5E6C84;             /* Màu chữ chú thích xám tro */
+    
+    /* 4. Đổ bóng và bo góc */
+    --shadow-sm: 0 2px 8px rgba(9, 30, 66, 0.08);
+    --shadow-md: 0 8px 24px rgba(9, 30, 66, 0.12);
+    --shadow-lg: 0 16px 36px rgba(9, 30, 66, 0.16);
+    --radius-main: 1rem;
+}
+
+/* Base Body */
+body {
+    background-color: var(--light-bg-color);
+    color: var(--text-color);
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.65;
+}
+
+/* Các lớp CSS tiện ích theo yêu cầu bài tập */
+.primary-bg {
+    background-color: var(--primary-color) !important;
+}
+
+.secondary-bg {
+    background-color: var(--secondary-color) !important;
+}
+
+.accent-bg {
+    background-color: var(--accent-color) !important;
+}
+
+.text-primary-color {
+    color: var(--primary-color) !important;
+}
+
+.text-secondary-color {
+    color: var(--secondary-dark-color) !important;
+}
+
+.text-accent-color {
+    color: var(--text-accent-color) !important;
+}
+
+/* Nút bấm Custom Primary theo yêu cầu đề bài */
+.btn-primary-custom {
+    background-color: var(--primary-color);
+    color: #ffffff !important;
+    border: 2px solid var(--primary-color);
+    font-weight: 600;
+    padding: 0.65rem 1.6rem;
+    border-radius: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.25s ease;
+    text-decoration: none;
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-primary-custom:hover,
+.btn-primary-custom:focus {
+    background-color: var(--darker-primary-color);
+    border-color: var(--darker-primary-color);
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Nút bấm Accent Custom */
+.btn-accent-custom {
+    background-color: var(--accent-color);
+    color: #ffffff !important;
+    border: 2px solid var(--accent-color);
+    font-weight: 600;
+    padding: 0.65rem 1.6rem;
+    border-radius: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.25s ease;
+    text-decoration: none;
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-accent-custom:hover,
+.btn-accent-custom:focus {
+    background-color: var(--accent-dark-color);
+    border-color: var(--accent-dark-color);
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Header Banner Newsletter */
+.newsletter-header {
+    border-radius: var(--radius-main);
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #005A8E 100%);
+}
+
+.newsletter-header::after {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle, rgba(0, 194, 224, 0.35) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* Thẻ Card Tùy Chỉnh */
+.card-custom {
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-main);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card-custom:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Feature Cards với màu nền từ đề bài */
+.feature-card-secondary {
+    background: linear-gradient(145deg, #00C2E0 0%, #0098B0 100%) !important;
+    border-radius: var(--radius-main);
+    border: none;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.feature-card-secondary:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.feature-card-accent {
+    background: linear-gradient(145deg, #5AAC44 0%, #468835 100%) !important;
+    border-radius: var(--radius-main);
+    border: none;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.feature-card-accent:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Khối đăng ký email (Newsletter Subscription Box) */
+.subscribe-section {
+    background-color: #EBF3FA;
+    border: 2px dashed var(--primary-color);
+    border-radius: var(--radius-main);
+}
+
+.form-control-custom {
+    border: 2px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-control-custom:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(0, 121, 191, 0.2);
+    outline: none;
+}
+
+/* Footer */
+.newsletter-footer {
+    border-radius: var(--radius-main);
+    background: linear-gradient(135deg, #091E42 0%, #172B4D 100%) !important;
+    box-shadow: var(--shadow-sm);
+}
+
+.newsletter-footer a {
+    color: #00C2E0;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.newsletter-footer a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* Thanh điều hướng chuyển đổi phiên bản */
+.version-nav-bar {
+    background: #091E42;
+    color: #ffffff;
+    border-radius: 50rem;
+    padding: 0.4rem 1rem;
+    box-shadow: 0 10px 25px rgba(9, 30, 66, 0.2);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.version-nav-btn {
+    border-radius: 50rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.35rem 0.95rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.version-nav-btn.active {
+    background-color: var(--primary-color);
+    color: #ffffff !important;
+}
+
+.version-nav-btn:not(.active) {
+    background-color: rgba(255, 255, 255, 0.12);
+    color: #DEEBFF;
+}
+
+.version-nav-btn:not(.active):hover {
+    background-color: rgba(255, 255, 255, 0.24);
+    color: #ffffff;
+}
+
+/* Badge huy hiệu */
+.badge-custom {
+    background-color: rgba(0, 121, 191, 0.12);
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    padding: 0.35rem 0.75rem;
+    border-radius: 50rem;
+    text-transform: uppercase;
+}
