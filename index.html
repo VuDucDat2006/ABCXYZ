@@ -1,275 +1,391 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Luyện tập bố cục lưới thẻ sản phẩm (Product Card Grid) tự động co giãn và xuống dòng với Flexbox.">
-  <title>Bố cục lưới sản phẩm linh hoạt với Flexbox</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      background-color: #f8fafc;
-      color: #1e293b;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* Tiêu đề & Giới thiệu */
-    header {
-      padding: 40px 24px 20px;
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: #e0f2fe;
-      color: #0284c7;
-      font-size: 0.8rem;
-      font-weight: 600;
-      padding: 5px 12px;
-      border-radius: 9999px;
-      margin-bottom: 12px;
-    }
-
-    h1 {
-      font-size: 1.85rem;
-      font-weight: 700;
-      color: #0f172a;
-      margin-bottom: 8px;
-      letter-spacing: -0.02em;
-    }
-
-    .subtitle {
-      color: #64748b;
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-
-    /* Container chính */
-    .wrapper {
-      max-width: 1200px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 0 16px 40px;
-    }
-
-    /* BỐ CỤC LƯỚI SẢN PHẨM VỚI FLEXBOX */
-    .product-grid {
-      display: flex;
-      flex-wrap: wrap;       /* Tự động xuống dòng khi thiếu chỗ */
-      gap: 20px;             /* Khoảng cách đều giữa các thẻ */
-      padding: 20px;
-    }
-
-    /* TỪNG THẺ SẢN PHẨM */
-    .product-card {
-      /* flex-grow: 1, flex-shrink: 1, flex-basis: calc(25% - 20px) */
-      flex: 1 1 calc(25% - 20px);
-      min-width: 220px;      /* Giới hạn chiều rộng tối thiểu trước khi rớt dòng */
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .product-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px -6px rgba(15, 23, 42, 0.08);
-      border-color: #cbd5e1;
-    }
-
-    .card-thumbnail {
-      width: 100%;
-      height: 140px;
-      background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 16px;
-      font-size: 2.2rem;
-    }
-
-    .product-card h4 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #0f172a;
-      margin-bottom: 8px;
-    }
-
-    .product-card .category {
-      font-size: 0.8rem;
-      color: #94a3b8;
-      text-transform: uppercase;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      margin-bottom: 4px;
-    }
-
-    .product-card .price {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: #0284c7;
-      margin-top: 8px;
-      margin-bottom: 16px;
-    }
-
-    .buy-btn {
-      width: 100%;
-      padding: 10px 16px;
-      background: #0f172a;
-      color: #ffffff;
-      border: none;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 0.88rem;
-      cursor: pointer;
-      transition: background 0.2s ease;
-    }
-
-    .buy-btn:hover {
-      background: #2563eb;
-    }
-
-    /* Hộp thông tin phân tích CSS */
-    .explanation-box {
-      margin-top: 30px;
-      padding: 20px 24px;
-      background: #ffffff;
-      border-radius: 12px;
-      border: 1px solid #e2e8f0;
-    }
-
-    .explanation-box h5 {
-      font-size: 1rem;
-      color: #0f172a;
-      margin-bottom: 12px;
-      font-weight: 700;
-    }
-
-    .explanation-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 16px;
-      font-size: 0.9rem;
-      line-height: 1.6;
-      color: #475569;
-    }
-
-    .explanation-item {
-      background: #f8fafc;
-      padding: 12px 16px;
-      border-radius: 8px;
-      border-left: 3px solid #0284c7;
-    }
-
-    .explanation-item strong {
-      color: #0f172a;
-      display: block;
-      margin-bottom: 4px;
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Imaginary Store - Phối Màu Đơn Tông (Monochromatic)</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
 </head>
+
 <body>
-  <header>
-    <div class="badge">Flexbox Responsive Grid</div>
-    <h1>Danh Sách Lưới Sản Phẩm Linh Hoạt</h1>
-    <p class="subtitle">Thử co giãn kích thước trình duyệt để quan sát các thẻ sản phẩm tự động xếp 4 cột, 2 cột hoặc 1 cột.</p>
-  </header>
-
-  <div class="wrapper">
-    <!-- Cấu trúc HTML chính theo yêu cầu -->
-    <div class="product-grid">
-      <div class="product-card">
-        <div>
-          <div class="card-thumbnail">🎧</div>
-          <p class="category">Âm thanh</p>
-          <h4>Sản phẩm 1</h4>
+<!-- Thanh công cụ hỗ trợ chấm bài & quan sát phối màu đơn tông -->
+<div class="palette-toolbar">
+    <div class="palette-toolbar-info">
+        <span class="palette-badge">CodeGym Web Practice</span>
+        <strong id="currentThemeLabel">Phối màu đơn tông Xanh Dương (#00ADEE)</strong>
+        <div class="palette-swatches-preview">
+            <span class="swatch-chip" style="background: var(--color-lv1);" title="Bậc 1: Màu chính #00ADEE"></span>
+            <span class="swatch-chip" style="background: var(--color-lv4);" title="Bậc 4: Nền banner #00BFF2"></span>
+            <span class="swatch-chip" style="background: var(--color-lv7);" title="Bậc 7: Nền preview #8DD7F7"></span>
+            <span class="swatch-chip" style="background: var(--color-lv9);" title="Bậc 9: Nền footer #C6E9FA"></span>
         </div>
-        <div>
-          <p class="price">500.000 đ</p>
-          <button class="buy-btn">Thêm vào giỏ</button>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div>
-          <div class="card-thumbnail">⌚</div>
-          <p class="category">Phụ kiện</p>
-          <h4>Sản phẩm 2</h4>
-        </div>
-        <div>
-          <p class="price">750.000 đ</p>
-          <button class="buy-btn">Thêm vào giỏ</button>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div>
-          <div class="card-thumbnail">💻</div>
-          <p class="category">Điện tử</p>
-          <h4>Sản phẩm 3</h4>
-        </div>
-        <div>
-          <p class="price">1.200.000 đ</p>
-          <button class="buy-btn">Thêm vào giỏ</button>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div>
-          <div class="card-thumbnail">⌨️</div>
-          <p class="category">Bàn phím</p>
-          <h4>Sản phẩm 4</h4>
-        </div>
-        <div>
-          <p class="price">320.000 đ</p>
-          <button class="buy-btn">Thêm vào giỏ</button>
-        </div>
-      </div>
     </div>
-
-    <!-- Giải thích cơ chế hoạt động -->
-    <div class="explanation-box">
-      <h5>💡 Cơ chế co giãn linh hoạt của Flexbox:</h5>
-      <div class="explanation-list">
-        <div class="explanation-item">
-          <strong>1. <code>flex-wrap: wrap;</code></strong>
-          Cho phép các phần tử tự động rớt xuống dòng tiếp theo khi hàng hiện tại không còn đủ khoảng trống chứa thẻ.
-        </div>
-        <div class="explanation-item">
-          <strong>2. <code>gap: 20px;</code></strong>
-          Tạo khoảng cách đều đặn 20px giữa các hàng và cột mà không cần dùng margin âm hay margin thủ công.
-        </div>
-        <div class="explanation-item">
-          <strong>3. <code>flex: 1 1 calc(25% - 20px);</code></strong>
-          Mặc định chia 4 cột (mỗi cột ~25%). Các thẻ có thể co lại hoặc giãn đều ra để lấp đầy khoảng trống dư thừa.
-        </div>
-        <div class="explanation-item">
-          <strong>4. <code>min-width: 220px;</code></strong>
-          Ngăn thẻ bị ép quá hẹp. Khi màn hình nhỏ hơn (Tablet, Mobile), các thẻ sẽ tự động rớt dòng xuống 2 cột hoặc 1 cột.
-        </div>
-      </div>
+    <div class="palette-toolbar-actions">
+        <button class="theme-btn active" id="btnThemeBlue" onclick="switchTheme('blue')">🔵 Xanh Dương (Bước 1-7)</button>
+        <button class="theme-btn" id="btnThemePurple" onclick="switchTheme('purple')">🟣 Tím Adobe Color (Bước 8)</button>
+        <button class="theme-btn" id="btnThemeEmerald" onclick="switchTheme('emerald')">🟢 Xanh Lục (Mở rộng)</button>
+        <button class="theme-btn theme-btn-modal" onclick="openModal()">📋 Bảng Tra Cứu Bậc Màu</button>
+        <a href="theme-variant.html" class="theme-btn" style="background:#2563eb; color:#ffffff; border-color:#1d4ed8;" title="Mở trang web thứ hai theo Bước 8">📄 Trang Biến Thể Bước 8 &rarr;</a>
     </div>
-  </div>
+</div>
+
+<!-- Modal Bảng tra cứu cấp độ màu đơn tông theo bài học -->
+<div class="modal-overlay" id="colorModal" onclick="closeModalOnBg(event)">
+    <div class="modal-card">
+        <div class="modal-header">
+            <h3>Bảng Phân Bổ Cấp Độ Màu Đơn Tông (Monochromatic Scale)</h3>
+            <button class="modal-close-btn" onclick="closeModal()">&times;</button>
+        </div>
+        <p style="font-size: 13.5px; line-height: 1.6; color: #4b5563; margin-bottom: 14px;">
+            Dưới đây là bảng phân cấp màu đơn tông nhạt dần từ màu chủ đạo theo hướng dẫn bài tập thực hành CodeGym:
+        </p>
+        <table class="color-table">
+            <thead>
+                <tr>
+                    <th>Cấp độ</th>
+                    <th>Mã màu (Hex)</th>
+                    <th>Mô tả & Vị trí áp dụng trên website</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Bậc 1</strong> (Chính)</td>
+                    <td><span class="color-sample-box" style="background: #00ADEE;"></span> <code>#00ADEE</code></td>
+                    <td><strong>Màu chủ đạo (Logo):</strong> Dùng cho nút Add to Cart, badge ON SALE, PREVIEW badge, circle play, icon, link hover.</td>
+                </tr>
+                <tr>
+                    <td><strong>Bậc 2</strong></td>
+                    <td><span class="color-sample-box" style="background: #00B2EF;"></span> <code>#00B2EF</code></td>
+                    <td>Màu nhấn phụ, hiệu ứng hover nút bấm và điểm tương tác nổi bật.</td>
+                </tr>
+                <tr>
+                    <td><strong>Bậc 3</strong></td>
+                    <td><span class="color-sample-box" style="background: #00B8F0;"></span> <code>#00B8F0</code></td>
+                    <td>Tông màu trung gian kết nối giữa Bậc 2 và Bậc 4.</td>
+                </tr>
+                <tr>
+                    <td><strong>Bậc 4</strong></td>
+                    <td><span class="color-sample-box" style="background: #00BFF2;"></span> <code>#00BFF2</code></td>
+                    <td><strong>Bước 2:</strong> Màu nền phần <code>#banner</code>, màu chữ màu đen (hoặc trắng) tương phản rõ.</td>
+                </tr>
+                <tr>
+                    <td><strong>Bậc 5</strong></td>
+                    <td><span class="color-sample-box" style="background: #2DCBF5;"></span> <code>#2DCBF5</code></td>
+                    <td>Tông sáng chuyển tiếp.</td>
+                </tr>
+                <tr>
+                    <td><strong>Bậc 6</strong></td>
+                    <td><span class="color-sample-box" style="background: #5CD4F6;"></span> <code>#5CD4F6</code></td>
+                    <td>Tông sáng nhẹ.</td>
+                </tr>
+                <tr>
+                    <td><strong>Bậc 7</strong></td>
+                    <td><span class="color-sample-box" style="background: #8DD7F7;"></span> <code>#8DD7F7</code></td>
+                    <td><strong>Bước 4:</strong> Màu nền thẻ nội dung Preview (thay cho màu hồng cũ <code>#fac7d2</code>), chữ màu đen.</td>
+                </tr>
+                <tr>
+                    <td><strong>Bậc 8</strong></td>
+                    <td><span class="color-sample-box" style="background: #ACE2F9;"></span> <code>#ACE2F9</code></td>
+                    <td>Tông màu pastel chuyển tiếp.</td>
+                </tr>
+                <tr>
+                    <td><strong>Bậc 9</strong></td>
+                    <td><span class="color-sample-box" style="background: #C6E9FA;"></span> <code>#C6E9FA</code></td>
+                    <td><strong>Bước 5:</strong> Màu nền phần Newsletter/Info và Footer tạo độ sáng tươi mới cho website.</td>
+                </tr>
+                <tr>
+                    <td><strong>Toàn bộ chữ</strong></td>
+                    <td><span class="color-sample-box" style="background: #000000;"></span> <code>#000000</code></td>
+                    <td><strong>Bước 6:</strong> Giữ nguyên màu chữ cho toàn bộ trang là màu đen để bảo đảm độ tương phản tối ưu.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div style="margin-top: 18px; text-align: right;">
+            <button class="theme-btn" style="background: #111827; color: #fff;" onclick="closeModal()">Đóng cửa sổ</button>
+        </div>
+    </div>
+</div>
+
+<header id="top">
+	<div class="fix-size">
+    	<p class="c9 left">
+        	Welcome Thomas. <a href="">[ Manage Account ]</a>
+        </p>
+        <p class="c3 left">
+        	<a href="#main-nav" class="hide"><img src="images/nav-btn.png" alt="button" /></a>
+            <a href="" class="right">Sign out</a>
+        </p>
+    </div>
+    <div class="clear"></div>
+</header><!-- header -->
+
+<nav>
+	<div class="fix-size">
+    	<ul class="c5 left show">
+        	<li><a href="">Categories</a></li>
+            <li><a href="">Top Products</a></li>
+            <li><a href="">Carts</a></li>
+        </ul>
+        <a href="" class="c2 left c">
+        	<img id="storeLogo" src="images/logo-blue.png" alt="logo" />
+        </a>
+        <form action="#" class="c5 left show">
+        	<input type="search" placeholder="search anything in store" required />
+            <input type="submit" value="search" />
+        </form>
+    </div>
+    <div class="clear"></div>
+</nav><!-- nav -->
+
+<section id="banner">
+	<div class="fix-size">
+    	<section class="c9 left c">
+        	<p>Top Products / This Week / Disc / Bach</p>
+            <h1>J.S. Bach Top 25 Collection</h1>
+        </section>
+        <aside class="c3 left c">
+        	<button>Add to Cart</button>
+            <p>In Stock. Estimated Delivery in 5 days.</p>
+        </aside>
+    </div>
+    <div class="clear"></div>
+</section><!-- banner -->
+
+<section id="main">
+	<div class="fix-size">
+    	<section class="c9 left c">
+        	<h3>Limited Discount: <del>$24.99</del> $19.99</h3>            
+            <div class="trans right">
+                <div class="cover">
+                    <div class="face">
+                        <p class="on-sale">ON SALE</p>
+                    </div>
+                    <div class="face back">
+                        <b>J.S. Bach - Top 25 Collection</b>
+                        <ol>
+                            <li>Violin Concerto in A minor</li>
+                            <li>Christmas Oratorio</li>
+                            <li>Jesu Joy of Man's Desiring</li>
+                            <li>Suite No. 3 in D major</li>
+                        </ol>
+                    </div>
+                </div>
+            </div><!-- trans -->
+            
+            <p>
+            	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id diam metus. Duis tellus augue, malesuada ac lacinia eu, faucibus quis sem. Morbi at metus nisi, at facilisis sem. Nullam sit amet orci lorem. Aenean blandit tellus a ante malesuada ut malesuada lectus tristique. Suspendisse potenti. Donec urna quam, tempor ut dignissim sed, laoreet quis eros. In hac habitasse platea dictumst. Nunc tempus, risus non viverra ultrices, nisl purus ornare tellus, ut scelerisque nunc sem non turpis. Phasellus dictum interdum enim, non viverra odio pharetra id. Duis ut molestie purus. Morbi lectus lectus, ultricies eu congue et, posuere id felis. Fusce elementum felis lacinia mi convallis venenatis. Donec molestie tempor ligula, quis euismod ipsum posuere a. Donec id mi erat, at volutpat massa. Suspendisse tempor, massa eget venenatis malesuada, ipsum turpis suscipit risus, id fermentum dui purus eget nisi.
+            </p>
+            
+            <h2>Previews</h2>
+            <ul class="preview">
+            	<li class="left"><a href="javascript:void(0);">
+                	<div class="c3 left">
+                    	<p class="title">PREVIEW</p>
+                        <div class="circle"><div class="triangle">&#9658;</div></div>
+                    </div>
+                    <div class="c9 left">
+                    	<b>Violin Concerto in A minor</b>
+                        <small>Duration: 3:50</small>
+                    </div>
+                    <div class="clear"></div>
+                </a></li><!-- element -->
+                
+                <li class="right"><a href="javascript:void(0);">
+                	<div class="c3 left">
+                    	<p class="title">PREVIEW</p>
+                        <div class="circle"><div class="triangle">&#9658;</div></div>
+                    </div>
+                    <div class="c9 left">
+                    	<b>Christmas Oratorio</b>
+                        <small>Duration: 2:26</small>
+                    </div>
+                    <div class="clear"></div>
+                </a></li><!-- element -->
+                <li class="clear"></li>
+                
+                <li class="left"><a href="javascript:void(0);">
+                	<div class="c3 left">
+                    	<p class="title">PREVIEW</p>
+                        <div class="circle"><div class="triangle">&#9658;</div></div>
+                    </div>
+                    <div class="c9 left">
+                    	<b>Jesu Joy of Man's Desiring</b>
+                        <small>Duration: 3:27</small>
+                    </div>
+                    <div class="clear"></div>
+                </a></li><!-- element -->
+                
+                <li class="right"><a href="javascript:void(0);">
+                	<div class="c3 left">
+                    	<p class="title">PREVIEW</p>
+                        <div class="circle"><div class="triangle">&#9658;</div></div>
+                    </div>
+                    <div class="c9 left">
+                    	<b>Suite No. 3 in D major</b>
+                        <small>Duration: 3:28</small>
+                    </div>
+                    <div class="clear"></div>
+                </a></li><!-- element -->
+            </ul>
+            <div class="clear"></div>
+            
+            <h2>Top Reviews</h2>
+            <blockquote>
+            	<div class="quote">&ldquo;</div>
+                <p>
+                	Masterpiece! The must-have music you couldn't miss.<small>- S.H. Mak</small>
+                </p>
+            </blockquote>
+            
+            <blockquote>
+            	<div class="quote">&ldquo;</div>
+                <p>
+                	Buy it now and you would not regrad. <small>- Johnahtan</small>
+                </p>
+            </blockquote>
+        </section>
+        <aside class="c3 left c">
+        	<h3>About J.S. Bach</h3>
+            <p class="about">
+            	Nullam sit amet orci lorem. Aenean blandit tellus a ante malesuada ut malesuada lectus tristique. Suspendisse potenti. Donec urna quam, tempor ut dignissim sed, laoreet quis eros. In hac habitasse platea dictumst. Nunc tempus, risus non viverra ultrices, nisl purus ornare tellus.
+            </p>
+            
+            <h3>Recommends</h3>
+            <div class="aside-cover">
+            	<div class="trans">
+                	<div class="cover">
+                    	<div class="face">
+                        </div>
+                        <div class="face back">
+                        	<b>J.S. Bach - Top 25 Collection</b>
+                            <ol>
+                            	<li>Violin Concerto in A minor</li>
+                                <li>Christmas Oratorio</li>
+                                <li>Jesu Joy of Man's Desiring</li>
+                                <li>Suite No. 3 in D major</li>
+                            </ol>
+                            <button>Go to Album</button>
+                        </div>
+                    </div>
+                </div><!-- trans -->
+            	<p>Bach Gold Collection T-Shirt</p>
+            </div><!-- aside cover -->
+            
+            <div class="aside-cover">
+            	<div class="trans">
+                	<div class="cover">
+                    	<div class="face">
+                        </div>
+                        <div class="face back">
+                        	<b>J.S. Bach - Top 25 Collection</b>
+                            <ol>
+                            	<li>Violin Concerto in A minor</li>
+                                <li>Christmas Oratorio</li>
+                                <li>Jesu Joy of Man's Desiring</li>
+                                <li>Suite No. 3 in D major</li>
+                            </ol>
+                            <button>Go to Album</button>
+                        </div>
+                    </div>
+                </div><!-- trans -->
+                <p>Bach Gold Collection</p>
+            </div><!-- aside cover -->
+        </aside>
+    </div>
+    <div class="clear"></div>
+    
+    <nav id="main-nav" class="c12 c hide">
+    	<ul>
+        	<li><a href="#top"><span class="arrow"></span>Back to Top</a></li>
+            <li><a href="">Categories</a></li>
+            <li><a href="">Top Products</a></li>
+            <li><a href="">Carts</a></li>
+            <li><a href="">Your Account</a></li>
+        </ul>
+        <form action="#">
+        	<input type="search" placeholder="search in store" required />
+            <input type="submit" value="go" />
+        </form>
+    </nav><!-- main nav -->
+    <div class="clear"></div>
+</section><!-- main -->
+
+<section id="info">
+	<div class="fix-size">
+    	<div class="c4 left c">
+        	<h3>Follow Us</h3>
+            <p>
+            	Lorem ipsum dolor sit amet. Faucibus quis sem. Morbi at metus nisi, at facilisis sem.
+            </p>
+        </div>
+        <div class="c4 left c">
+        	<h3>Newsletter</h3>
+            <p>
+            	Faucibus quis sem. Morbi at metus nisi, at facilisis sem. Nullam sit amet orci lorem.
+            </p>
+            <form action="#">
+            	<input type="email" placeholder="your email" required />
+                <input type="submit" value="Subscribe" />
+            </form>
+        </div>
+        <div class="c4 left c">
+        	<h3>Refund Policy</h3>
+        	<p>
+            	Morbi lectus lectus, ultricies eu congue et, posuere id felis. Fusce elementum felis lacinia mi convallis venenatis.
+            </p>
+        </div>
+    </div>
+    <div class="clear"></div>
+</section><!-- info -->
+
+<footer>
+	<div class="fix-size">
+    	<div class="c12 c">
+        	<span>&copy; 2026. Imaginary Store. Luyện tập phối màu đơn tông.</span>
+            <span class="right">Handmade in Leipzig, Germany.</span>
+        </div>
+    </div>
+    <div class="clear"></div>
+</footer><!-- footer -->
+
+<script>
+    function switchTheme(theme) {
+        document.documentElement.removeAttribute('data-theme');
+        document.querySelectorAll('.theme-btn').forEach(btn => btn.classList.remove('active'));
+        
+        const label = document.getElementById('currentThemeLabel');
+        const logo = document.getElementById('storeLogo');
+
+        if (theme === 'blue') {
+            document.getElementById('btnThemeBlue').classList.add('active');
+            label.textContent = 'Phối màu đơn tông Xanh Dương (#00ADEE) - Bước 1-7';
+            if (logo) logo.src = 'images/logo-blue.png';
+        } else if (theme === 'purple') {
+            document.documentElement.setAttribute('data-theme', 'purple');
+            document.getElementById('btnThemePurple').classList.add('active');
+            label.textContent = 'Phối màu đơn tông Tím Adobe Color (#8D0888) - Bước 8';
+            if (logo) logo.src = 'images/logo-blue.png';
+        } else if (theme === 'emerald') {
+            document.documentElement.setAttribute('data-theme', 'emerald');
+            document.getElementById('btnThemeEmerald').classList.add('active');
+            label.textContent = 'Phối màu đơn tông Xanh Lục Emerald (#059669) - Mở rộng';
+            if (logo) logo.src = 'images/logo-blue.png';
+        }
+    }
+
+    function openModal() {
+        document.getElementById('colorModal').classList.add('open');
+    }
+
+    function closeModal() {
+        document.getElementById('colorModal').classList.remove('open');
+    }
+
+    function closeModalOnBg(e) {
+        if (e.target.id === 'colorModal') {
+            closeModal();
+        }
+    }
+</script>
 </body>
 </html>

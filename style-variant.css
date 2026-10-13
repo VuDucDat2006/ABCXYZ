@@ -1,0 +1,918 @@
+@charset "utf-8";
+/* CSS Document - Trang Biến Thể Bước 8: Phối Màu Đơn Tông Tím (#8D0888) từ Adobe Color */
+
+:root {
+	/* BẢNG MÀU ĐƠN TÔNG TÍM QUÝ TỘC (#8D0888) - THEO BƯỚC 8 */
+	--color-lv1: #8D0888; /* Bậc 1: Màu chủ đạo từ bảng Adobe Color */
+	--color-lv2: #9F149A; /* Bậc 2: Màu nhấn, hover */
+	--color-lv3: #B327AE; /* Bậc 3: Tông chuyển tiếp */
+	--color-lv4: #C642C1; /* Bậc 4: Màu nền phần banner */
+	--color-lv5: #D467CF; /* Bậc 5 */
+	--color-lv6: #E08DDC; /* Bậc 6 */
+	--color-lv7: #EBB3E8; /* Bậc 7: Màu nền phần nội dung / preview */
+	--color-lv8: #F4D4F3; /* Bậc 8 */
+	--color-lv9: #FAE8F9; /* Bậc 9: Màu nền phần info và footer */
+	--color-lv10: #FDF5FC; /* Bậc 10: Tông sáng nhất */
+
+	--color-text: #000000;         /* Bước 6: Giữ nguyên màu chữ toàn bộ trang là màu đen */
+	--color-text-banner: #000000;  /* Bước 2: Màu chữ banner tương phản rõ */
+	--color-btn-text: #ffffff;     /* Chữ trắng trên nền nút đậm bậc 1 */
+	--color-border: rgba(141, 8, 136, 0.25);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+ul li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.clear {
+	clear: both;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.hide {
+	display: none;
+}
+
+/* Thanh thông tin hướng dẫn và chuyển đổi Palette */
+.palette-toolbar {
+	background: #1e112a;
+	color: #f3f4f6;
+	padding: 10px 16px;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+	font-size: 13px;
+	border-bottom: 2px solid var(--color-lv1);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 10px;
+	position: sticky;
+	top: 0;
+	z-index: 9999;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+.palette-toolbar-info {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	flex-wrap: wrap;
+}
+
+.palette-badge {
+	background: var(--color-lv1);
+	color: #ffffff;
+	padding: 3px 8px;
+	border-radius: 4px;
+	font-weight: 700;
+	font-size: 11px;
+	letter-spacing: 0.5px;
+	text-transform: uppercase;
+}
+
+.palette-swatches-preview {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	margin-left: 6px;
+}
+
+.swatch-chip {
+	width: 16px;
+	height: 16px;
+	border-radius: 3px;
+	display: inline-block;
+	border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.palette-toolbar-actions {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.theme-btn {
+	background: #2d1840;
+	color: #e5e7eb;
+	border: 1px solid #4a2769;
+	padding: 5px 12px;
+	border-radius: 6px;
+	cursor: pointer;
+	font-size: 12px;
+	font-weight: 600;
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	transition: all 0.2s ease;
+}
+
+.theme-btn:hover {
+	background: #3e2158;
+	border-color: #63338c;
+	color: #ffffff;
+}
+
+.theme-btn.active {
+	background: var(--color-lv1);
+	border-color: var(--color-lv1);
+	color: #ffffff;
+}
+
+/* Modal bảng tra cứu bậc màu */
+.modal-overlay {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.7);
+	z-index: 10000;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+}
+
+.modal-overlay.open {
+	display: flex;
+}
+
+.modal-card {
+	background: #ffffff;
+	border-radius: 12px;
+	max-width: 760px;
+	width: 100%;
+	max-height: 90vh;
+	overflow-y: auto;
+	box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+	color: #111827;
+	padding: 24px;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.modal-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 16px;
+	border-bottom: 1px solid #e5e7eb;
+	padding-bottom: 12px;
+}
+
+.modal-header h3 {
+	font-size: 18px;
+	color: #111827;
+	margin: 0;
+	font-family: inherit;
+}
+
+.modal-close-btn {
+	background: none;
+	border: none;
+	font-size: 22px;
+	color: #6b7280;
+	cursor: pointer;
+	line-height: 1;
+	width: auto;
+	height: auto;
+}
+
+.color-table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 12px;
+	font-size: 13px;
+}
+
+.color-table th, .color-table td {
+	padding: 8px 12px;
+	text-align: left;
+	border-bottom: 1px solid #e5e7eb;
+}
+
+.color-table th {
+	background: #fdf5fc;
+	font-weight: 600;
+	color: #374151;
+}
+
+.color-sample-box {
+	width: 28px;
+	height: 20px;
+	border-radius: 4px;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 8px;
+}
+
+::selection {
+	background: var(--color-lv1);
+	color: #ffffff;
+}
+
+::-moz-selection {
+	background: var(--color-lv1);
+	color: #ffffff;
+}
+
+.c2 {
+	width: 16.6666%;
+}
+
+.c3 {
+	width: 25%;
+}
+
+.c4 {
+	width: 33.3333%;
+}
+
+.c5 {
+	width: 41.6666%;
+}
+
+.c9 {
+	width: 75%;
+}
+
+.c12 {
+	width: 100%;
+}
+
+.c2, .c3, .c4, .c5, .c9, .c12 {
+	padding: 0 15px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+.fix-size {
+	max-width: 1000px;
+	margin: auto;
+}
+
+/* Typography & Fonts */
+@font-face {
+	font-family: font1;
+	src: url(fonts/pacifico.woff);
+}
+
+@font-face {
+	font-family: font2;
+	src: url(fonts/ptsans.woff);
+}
+
+/* BƯỚC 6: Giữ nguyên màu chữ toàn bộ trang là màu đen */
+body {
+	font-family: font2, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+	font-size: 15.5px;
+	color: var(--color-text);
+	background: url(images/bg.png);
+	line-height: 1.62em;
+}
+
+/* Header */
+header#top {
+	color: #eeeeee;
+	background: #222222;
+	line-height: 32px;
+	font-size: 13.5px;
+}
+
+header#top a {
+	color: #9ca3af;
+	font-size: 13.5px;
+	transition: color 0.2s ease;
+}
+
+header#top a:hover {
+	color: #ffffff;
+}
+
+/* Navigation */
+body > nav {
+	background: transparent;
+}
+
+body > nav ul {
+	margin-top: 45px;
+}
+
+body > nav ul li {
+	width: 31%;
+	display: inline-block;
+	text-align: center;
+}
+
+/* Màu link theo bậc 1 (#8D0888) */
+body > nav ul li a {
+	color: var(--color-lv1);
+	display: inline-block;
+	padding: 5px 0;
+	font-weight: 600;
+	transition: all 0.2s ease;
+}
+
+body > nav ul li:nth-child(2) a {
+	border-bottom: solid 2px var(--color-lv1);
+}
+
+body > nav ul:hover li a {
+	border-bottom: none;
+}
+
+body > nav ul li:hover a {
+	border-bottom: solid 2px var(--color-lv1);
+	color: var(--color-lv2);
+}
+
+body > nav a.c2 {
+	display: block;
+}
+
+body > nav a img {
+	display: block;
+	margin: 20px 0;
+	transition: transform 0.2s ease;
+}
+
+body > nav a img:hover {
+	transform: scale(1.03);
+}
+
+body > nav form {
+	margin-top: 45px;
+}
+
+input, button {
+	width: 100%;
+	height: 30px;
+	color: #333333;
+	background: none;
+	border: none;
+	outline: none;
+}
+
+body > nav input[type=search] {
+	width: 80%;
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
+	text-indent: 10px;
+	background: #ffffff;
+	border: 1px solid #d1d5db;
+	border-radius: 4px;
+	height: 32px;
+	font-size: 13.5px;
+	color: #111827;
+}
+
+body > nav input[type=search]:focus {
+	border-color: var(--color-lv1);
+	box-shadow: 0 0 0 2px rgba(141, 8, 136, 0.2);
+}
+
+body > nav input[type=submit] {
+	width: 16%;
+	font-weight: bold;
+	color: var(--color-lv1);
+	cursor: pointer;
+	text-transform: uppercase;
+	font-size: 12px;
+	transition: color 0.2s ease;
+}
+
+body > nav input[type=submit]:hover {
+	color: var(--color-lv2);
+}
+
+/* BƯỚC 2: MÀU NỀN BANNER CHUYỂN THÀNH MÀU BẬC 4 (#C642C1) */
+#banner {
+	background: var(--color-lv4);
+	box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.12), inset 0 -2px #ffffff;
+	font-weight: bold;
+	padding: 24px 0;
+	color: var(--color-text-banner);
+	text-shadow: none;
+}
+
+h1, h2, h3 {
+	font-family: font1, cursive;
+	line-height: normal;
+	padding-bottom: 10px;
+}
+
+h1 {
+	font-size: 44px;
+	color: var(--color-text-banner);
+}
+
+h2 {
+	font-size: 38px;
+	color: var(--color-text);
+}
+
+h3 {
+	font-size: 24px;
+	color: var(--color-text);
+}
+
+#banner section p {
+	font-size: 14px;
+	opacity: 0.9;
+	margin-bottom: 4px;
+}
+
+/* Nút Add to Cart màu bậc 1 (#8D0888) */
+#banner aside button {
+	height: 56px;
+	border-radius: 6px;
+	margin-top: 30px;
+	font-size: 16px;
+	font-weight: bold;
+	color: var(--color-btn-text);
+	box-shadow: inset 0 -3px 2px rgba(0, 0, 0, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.25), 0 2px 6px rgba(0, 0, 0, 0.15);
+	background: var(--color-lv1);
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+	cursor: pointer;
+	border: none;
+	transition: all 0.2s ease;
+}
+
+#banner aside button:hover {
+	background: var(--color-lv2);
+	box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.15), inset 0 -2px rgba(255, 255, 255, 0.15), 0 4px 10px rgba(0, 0, 0, 0.2);
+	transform: translateY(-1px);
+}
+
+#banner aside button:active {
+	background: var(--color-lv1);
+	box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.3);
+	transform: translateY(1px);
+}
+
+#banner aside p {
+	text-align: center;
+	font-size: 11px;
+	padding: 5px 0;
+	color: var(--color-text-banner);
+}
+
+/* Main Section */
+#main {
+	padding-top: 25px;
+	overflow: hidden;
+}
+
+#main section > .right {
+	margin-left: 20px;
+	margin-bottom: 10px;
+}
+
+#main section h3 {
+	font-family: font2, sans-serif;
+	font-size: 24px !important;
+	margin-bottom: 25px;
+	color: var(--color-text);
+}
+
+#main section h3 del {
+	color: #9ca3af;
+}
+
+#main section > p {
+	text-align: justify;
+	margin-bottom: 25px;
+	color: var(--color-text);
+}
+
+/* Disc & Trans */
+.trans {
+	width: 225px;
+	height: 225px;
+	margin: auto;
+	perspective: 800px;
+	-webkit-perspective: 800px;
+}
+
+.trans .cover {
+	width: 225px;
+	height: 225px;
+	position: relative;
+	transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;
+	transition: all 0.5s ease-out;
+	-webkit-transition: all 0.5s ease-out;
+}
+
+.trans .face {
+	background: url(images/disc-cover.png) no-repeat;
+	width: 205px;
+	height: 205px;
+	padding: 10px;
+	border-radius: 6px;
+	transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+	position: absolute;
+	overflow: hidden;
+}
+
+.trans .back {
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25), inset 0 225px rgba(255, 255, 255, 0.9);
+	text-align: center;
+	transform: rotateY(180deg);
+	-webkit-transform: rotateY(180deg);
+	padding: 9px;
+	border: solid 1px var(--color-border);
+	background: #ffffff;
+}
+
+.trans:hover .cover {
+	transform: rotateY(-180deg);
+	-webkit-transform: rotateY(-180deg);
+}
+
+.trans .back b {
+	font-size: 14px;
+	color: var(--color-text);
+}
+
+.trans .back ol {
+	margin-top: 10px;
+}
+
+.trans .back ol li {
+	list-style: decimal inside;
+	line-height: 28px;
+	text-align: left;
+	font-size: 13px;
+	color: var(--color-text);
+}
+
+/* BƯỚC 3: MÀU NỀN ON SALE CHUYỂN SANG MÀU BẬC 1 (#8D0888) */
+.trans .on-sale {
+	background: var(--color-lv1);
+	color: #ffffff;
+	font-weight: 700;
+	letter-spacing: 0.5px;
+	transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+	margin-top: 14px;
+	margin-left: -140px;
+	text-align: center;
+	line-height: 28px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.trans .back button {
+	color: #ffffff;
+	background: var(--color-lv1);
+	border-radius: 4px;
+	margin-top: 10px;
+	width: 100px;
+	font-weight: bold;
+	cursor: pointer;
+	border: none;
+	transition: background-color 0.2s ease;
+}
+
+.trans .back button:hover {
+	background: var(--color-lv2);
+}
+
+/* BƯỚC 4: MÀU NỀN NỘI DUNG PREVIEW CHUYỂN THÀNH MÀU BẬC 7 (#EBB3E8) */
+#main .preview li {
+	width: 50%;
+}
+
+#main .preview li a {
+	display: block;
+	background: var(--color-lv7);
+	border-radius: 6px;
+	margin: 15px;
+	overflow: hidden;
+	color: var(--color-text);
+	position: relative;
+	padding: 12px;
+	border: 1px solid var(--color-border);
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+	transition: all 0.25s ease;
+}
+
+#main .preview li a:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+	border-color: var(--color-lv1);
+}
+
+#main .preview li.left a {
+	margin-left: 0;
+}
+
+#main .preview li.right a {
+	margin-right: 0;
+}
+
+/* BƯỚC 3: BADGE TITLE VÀ CIRCLE PLAY MÀU BẬC 1 (#8D0888) */
+#main .preview .title {
+	color: #ffffff;
+	font-size: 10px;
+	font-weight: 700;
+	letter-spacing: 0.5px;
+	display: block;
+	padding: 0 20px;
+	line-height: 14px;
+	background: var(--color-lv1);
+	transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+	position: absolute;
+	top: 13px;
+	left: -20px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+#main .preview .circle {
+	margin-left: 10px;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background: var(--color-lv1);
+	position: relative;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+	transition: all 0.3s ease;
+}
+
+#main .preview li a:hover .circle {
+	background: var(--color-lv2);
+	transform: scale(1.06);
+}
+
+#main .preview .triangle {
+	color: #ffffff;
+	font-size: 28px;
+	transform: scaleY(2.5);
+	-webkit-transform: scaleY(2.5);
+	top: 7px;
+	left: 14px;
+	position: absolute;
+}
+
+#main .preview b {
+	font-family: font1, cursive;
+	display: block;
+	line-height: 22px;
+	color: var(--color-text);
+	font-size: 15px;
+}
+
+#main .preview small {
+	font-size: 11px;
+	display: block;
+	line-height: 20px;
+	color: var(--color-text);
+	opacity: 0.85;
+}
+
+/* Blockquote */
+#main blockquote {
+	position: relative;
+	margin-bottom: 35px;
+}
+
+#main blockquote .quote {
+	font-size: 18px;
+	transform: scale(10, 10);
+	-webkit-transform: scale(10, 10);
+	color: #d1d5db;
+	position: absolute;
+	left: 20px;
+	top: 65px;
+}
+
+#main blockquote p {
+	padding-top: 20px;
+	padding-left: 70px;
+	font-size: 22px;
+	font-style: italic;
+	color: #374151;
+}
+
+#main blockquote small {
+	display: block;
+	margin-left: 20px;
+	margin-top: 5px;
+	font-size: 13px;
+	color: #6b7280;
+	font-style: normal;
+}
+
+#main aside h3 {
+	padding-bottom: 0px;
+	color: var(--color-text);
+}
+
+#main aside p {
+	text-align: center;
+	color: var(--color-text);
+}
+
+#main aside .about {
+	margin-bottom: 15px;
+	padding-bottom: 20px;
+	border-bottom: #d1d5db dashed 1px;
+	text-align: justify;
+	margin-top: 5px;
+	color: var(--color-text);
+}
+
+#main aside .aside-cover {
+	margin-bottom: 15px;
+}
+
+#main aside .aside-cover p {
+	margin-top: 8px;
+	font-weight: 600;
+	color: var(--color-text);
+}
+
+/* BƯỚC 5: MÀU NỀN FOOTER VÀ INFO CHUYỂN THÀNH MÀU BẬC 9 (#FAE8F9) */
+#info {
+	padding: 30px 0;
+	background: var(--color-lv9);
+	color: var(--color-text);
+	border-top: 1px solid var(--color-border);
+}
+
+#info h3 {
+	color: var(--color-text);
+	font-size: 20px;
+	margin-bottom: 8px;
+}
+
+#info p {
+	margin-bottom: 15px;
+	text-align: justify;
+	color: var(--color-text);
+	font-size: 14.5px;
+}
+
+#info input[type=email] {
+	text-indent: 10px;
+	background: #ffffff;
+	border: 1px solid var(--color-border);
+	border-radius: 4px;
+	height: 34px;
+	color: #111827;
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.08);
+	margin-bottom: 12px;
+	font-size: 13.5px;
+}
+
+#info input[type=email]:focus {
+	border-color: var(--color-lv1);
+	box-shadow: 0 0 0 2px rgba(141, 8, 136, 0.25);
+}
+
+#info input[type=submit] {
+	background: var(--color-lv1);
+	color: #ffffff;
+	border-radius: 4px;
+	height: 34px;
+	font-size: 13.5px;
+	font-weight: bold;
+	cursor: pointer;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+	transition: all 0.2s ease;
+}
+
+#info input[type=submit]:hover {
+	background: var(--color-lv2);
+	transform: translateY(-1px);
+}
+
+footer {
+	color: var(--color-text);
+	background: var(--color-lv9);
+	line-height: 52px;
+	border-top: 1px solid var(--color-border);
+	font-size: 14px;
+	font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+	.hide {
+		display: block;
+	}
+	.show {
+		display: none;
+	}
+	.c {
+		width: 100%;
+	}
+	header a.right {
+		float: left;
+	}
+	header a.hide {
+		float: right;
+	}
+	header a.hide img {
+		display: block;
+		margin: 6px;
+	}
+	body > nav a.c2 img {
+		margin: 20px auto;
+	}
+	#banner {
+		padding-bottom: 10px;
+	}
+	h1 {
+		font-size: 34px;
+	}
+	h2 {
+		font-size: 28px;
+	}
+	h3 {
+		font-size: 18px;
+	}
+	#main .preview li {
+		width: 100%;
+	}
+	#main .preview li a {
+		margin: 15px 0;
+	}
+	#main aside .aside-cover {
+		width: 50%;
+		float: left;
+	}
+	#main-nav {
+		margin: 50px 0;
+	}
+	#main-nav ul li a {
+		display: block;
+		line-height: 56px;
+		border-top: #dddddd solid 1px;
+		color: var(--color-lv1);
+		padding: 0 10px;
+		transition: all 0.3s ease;
+		font-weight: 600;
+	}
+	#main-nav ul li:last-child a {
+		border-bottom: #dddddd solid 1px;
+	}
+	#main-nav ul li a:hover {
+		background: var(--color-lv7);
+	}
+	#main-nav .arrow {
+		background: url(images/arrow.png) no-repeat bottom;
+		width: 30px;
+		height: 20px;
+		display: inline-block;
+		transition: all 0.5s linear;
+		-webkit-transition: all 0.5s linear;
+	}
+	#main-nav ul li:first-child a:hover .arrow {
+		background: url(images/double-arrow.png) no-repeat bottom;
+	}
+	#main-nav input {
+		border: #aaaaaa solid 1px;
+		height: 34px;
+		margin: 10px 0;
+	}
+	#main-nav input[type=search] {
+		box-shadow: inset 0 1px 1px rgba(170, 170, 170, 0.4);
+		text-indent: 10px;
+		background: #ffffff;
+	}
+	#main-nav input[type=submit] {
+		color: #222222;
+	}
+}
+
+@media (max-width: 500px) {
+	header p.c9 {
+		width: 66.6666%;
+	}
+	header p.c3 {
+		width: 33.3333%;
+	}
+}
